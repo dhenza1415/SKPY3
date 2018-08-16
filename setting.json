@@ -1,0 +1,11 @@
+{
+    "RAautoadd": true,
+    "RAautojoin": true,
+    "RAautoread": false,
+    "RAautoscan": true,
+    "RAbatas":{"on":true,"members":1},
+    "RAmessage": "http://line.me/ti/p/~andyihsan",
+    "RAmessage1": "Selamat datang...",
+    "RAreadMember": {},
+    "RAreadPoint": {}
+}
