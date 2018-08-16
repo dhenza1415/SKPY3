@@ -148,7 +148,7 @@ settings = {
     "pname":{},
     "pro_name":{},
     "message":"Thanks for add me",
-    "comment":"Like like & like by ☆{silent bot}☆\nCreator bot:\nby:ᴄʀᴇᴀᴛᴏʀ line.me/ti/p/~dhenz415
+    "comment":"Like like & like by ☆{silent bot}☆\nCreator bot:\nBy:ᴄʀᴇᴀᴛᴏʀ line.me/ti/p/~dhenz415",
     "Respontag":"",
     "mention":"",
     "welcome":"",
