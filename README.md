@@ -10,27 +10,27 @@ git ini bertujuan untuk membantu kalian yg bingung bagaimana memakai <b>[line-py
 
 # Install VIA VPS ( VIRTUAL PRIVATE SERVER )
 
-sudo apt-get install git
-git clone https://github.com/dhenza1415/SKPY3
-sudo apt-get python3-pip
-sude pip3 install rsa
-sudo pip3 install requests
-sudo pip3 install googletrans
-sudo pip3 install bs4
-sudo pip3 install requests
-sudo pip3 install rsa
-sudo pip3 install thrift
-sudo pip3 install bs4
-sudo pip3 install pytz
-sudo pip3 install humanfriendly
-sudo pip3 install gtts
-sudo pip3 install googletrans
-sudo pip3 install wikipedia
-sudo pip3 install youtube_dl
-sudo pip3 install ffmpy
-cd dpk
-python3 sb.py
+sudo apt-get install git<br>
+git clone https://github.com/dhenza1415/SKPY3<br>
+sudo apt-get python3-pip<br>
+sude pip3 install rsa<br>
+sudo pip3 install requests<br>
+sudo pip3 install googletrans<br>
+sudo pip3 install bs4<br>
+sudo pip3 install requests<br>
+sudo pip3 install rsa<br>
+sudo pip3 install thrift<br>
+sudo pip3 install bs4<br>
+sudo pip3 install pytz<br>
+sudo pip3 install humanfriendly<br>
+sudo pip3 install gtts<br>
+sudo pip3 install googletrans<br>
+sudo pip3 install wikipedia<br>
+sudo pip3 install youtube_dl<br>
+sudo pip3 install ffmpy<br>
+cd SKPY3<br>
+python3 Silentpy3.py<br><br>
 # Notes
 1. Jika os selain ubuntu bisa kalian sesuaikan sendiri<br>
-2. Untuk intal termux tinggal ganti sudo jadi pip3
-3. Moga bermaanfaat add ᴄʀᴇᴀᴛᴏʀ line.me/ti/p/~dhenz415
+2. Untuk intal termux tinggal ganti sudo jadi pip3<br>
+3. Moga bermaanfaat add ᴄʀᴇᴀᴛᴏʀ line.me/ti/p/~dhenz415<br><br>
