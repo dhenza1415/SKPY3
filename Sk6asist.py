@@ -7,6 +7,11 @@ from time import sleep
 from bs4 import BeautifulSoup
 from humanfriendly import format_timespan, format_size, format_number, format_length
 import time, random, sys, json, codecs, threading, glob, re, string, os, requests, subprocess, six, ast, pytz, urllib.request, urllib.parse, urllib.error, urllib.parse
+from gtts import gTTS
+import html5lib,shutil
+import wikipedia,goslate
+from multiprocessing import Pool, Process
+from googletrans import Translator
 
 #==============================================================================#
 botStart = time.time()
@@ -70,7 +75,28 @@ ktMID = kt.getProfile().mid
 Bots=[lineMID,kiMID,kkMID,kcMID,keMID,ktMID]
 creator = ["ufdc20b3a00b5e8f31e4f91017eb361b0","ufa6ba7212303e85f5460d9600264471c","u0f6df437fe3e32f07c4562308ac430a9"]
 admin=['ufdc20b3a00b5e8f31e4f91017eb361b0','ufa6ba7212303e85f5460d9600264471c']
-Bots = Bots 
+Bots = Bots
+
+lineMIDProfile = line.getProfile()
+kiMIDProfile = ki.getProfile()
+kkMIDProfile = kk.getProfile()
+kcMIDProfile = kc.getProfile()
+keMIDProfile = ke.getProfile()
+ktMIDProfile = kt.getProfile()
+
+lineMIDSettings = line.getSettings()
+kiMIDSettings = ki.getSettings()
+kkMIDSettings = kk.getSettings()
+kcMIDSettings = kc.getSettings()
+keMIDSettings = ke.getSettings()
+ktMIDSettings = kt.getSettings()
+
+responsename = line.getProfile().displayName
+responsename1 = ki.getProfile().displayName
+responsename2 = kk.getProfile().displayName
+responsename3 = kc.getProfile().displayName
+responsename4 = ke.getProfile().displayName
+responsename4 = kt.getProfile().displayName
 
 protectqr = []
 protectkick = []
@@ -112,13 +138,58 @@ settings = {
     "pname":{},
     "pro_name":{},
     "welcome":"",
-    "bye":""
+    "bye":"",
+    "userAgent": [
+        "Mozilla/5.0 (X11; U; Linux i586; de; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (X11; U; Linux amd64; rv:5.0) Gecko/20100101 Firefox/5.0 (Debian)",
+        "Mozilla/5.0 (X11; U; Linux amd64; en-US; rv:5.0) Gecko/20110619 Firefox/5.0",
+        "Mozilla/5.0 (X11; Linux) Gecko Firefox/5.0",
+        "Mozilla/5.0 (X11; Linux x86_64; rv:5.0) Gecko/20100101 Firefox/5.0 FirePHP/0.5",
+        "Mozilla/5.0 (X11; Linux x86_64; rv:5.0) Gecko/20100101 Firefox/5.0 Firefox/5.0",
+        "Mozilla/5.0 (X11; Linux x86_64) Gecko Firefox/5.0",
+        "Mozilla/5.0 (X11; Linux ppc; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (X11; Linux AMD64) Gecko Firefox/5.0",
+        "Mozilla/5.0 (X11; FreeBSD amd64; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 6.2; WOW64; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:5.0) Gecko/20110619 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 6.1; rv:6.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 6.1.1; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 5.2; WOW64; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 5.1; U; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 5.1; rv:2.0.1) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 5.0; WOW64; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 5.0; rv:5.0) Gecko/20100101 Firefox/5.0"
+    ],
+    "mimic": {
+        "copy": False,
+        "status": False,
+        "target": {}
+    }
 }
 
 wait = {
     "addbots":False,
     "dellbots":False,
     "contact":False
+}
+
+Protect = {
+    "protect": False,
+    "cancelprotect": False,
+    "inviteprotect": False,
+    "linkprotect": False,
+    "Protectguest": False,
+    "Protectjoin": False,
+
+}
+
+read = {
+    "readPoint": {},
+    "readMember": {},
+    "readTime": {},
+    "ROM": {}
+
 }
 
 myProfile = {
@@ -144,7 +215,44 @@ settings = json.load(settingsOpen)
 
 setTime = {}
 setTime = Set['setTime']
-mulai = time.time() 
+
+contact = line.getProfile()
+backup = line.getProfile()
+backup.dispalyName = contact.displayName
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+contact = ki.getProfile()
+backup = ki.getProfile()
+backup.dispalyName = contact.displayName
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+contact = kk.getProfile()
+backup = kk.getProfile()
+backup.dispalyName = contact.displayName
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+contact = kc.getProfile()
+backup = kc.getProfile()
+backup.dispalyName = contact.displayName
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+contact = ke.getProfile()
+backup = ke.getProfile()
+backup.dispalyName = contact.displayName
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+contact = kt.getProfile()
+backup = kt.getProfile()
+backup.dispalyName = contact.displayName
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+mulai = time.time()
 tz = pytz.timezone("Asia/Jakarta")
 timeNow = datetime.now(tz=tz)
 dangerMessage = ["cleanse","group cleansed.","mulai",".winebot",".kickall","mayhem","kick on","makasih :d","!kickall","nuke","บิน",".???","งงไปดิ","บินไปดิ","เซลกากจัง"]
@@ -1993,6 +2101,28 @@ def lineBot(op):
                     line.sendMessage(to, "Tunggu ..")
                     line.sendMessage(to, "Success Restarting.")
                     restartBot()
+                elif text.lower() == 'waktu':
+                  if msg._from in admin:
+                    timeNow = time.time()
+                    runtime = timeNow - botStart
+                    runtime = format_timespan(runtime)
+                    line.sendMessage(to, "Bot berjalan .. {}".format(str(runtime)))
+                elif text.lower() == 'info':
+                  if msg._from in admin:
+                    try:
+                        arr = []
+                        contact = line.getContact(lineMID)
+                        grouplist = line.getGroupIdsJoined()
+                        contactlist = line.getAllContactIds()
+                        ret_ = "╔══[ INFO BOTS ]"
+                        ret_ += "\n╠✪ NAMA : {}".format(contact.displayName)
+                        ret_ += "\n╠✪ GROUP : {}".format(str(len(grouplist)))
+                        ret_ += "\n╠✪ TEMAN : {}".format(str(len(contactlist)))
+                        ret_ += "\n╠✪ VERSION : SELFBOTS"
+                        ret_ += "\n╠══[🛠●☆Silent bot☆●🛠]"
+                        line.sendMessage(msg.to, str(ret_))
+                    except Exception as e:
+                        line.sendMessage(msg.to, str(e))
 #==============================================================================#
                 elif text.lower() == 'set':
                   if msg._from in admin:
@@ -2057,7 +2187,16 @@ def lineBot(op):
                     for i in creator:
                         ma = line.getContact(i)
                         line.sendMessage(msg.to, None, contentMetadata={'mid': i}, contentType=13)
-             
+                
+                elif text.lower() == 'gue':
+                  if msg._from in admin:
+                     sendMessageWithMention(to, msg._from)
+
+                elif text.lower() == 'me':
+                  if msg._from in admin:
+                     sendMessageWithMention(to, lineMID)
+                     line.sendContact(to, lineMID)
+
                 elif text.lower() == "mid ":
                   if msg._from in admin:
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
@@ -2116,7 +2255,7 @@ def lineBot(op):
                       except:
                         line.sendText(msg.to,"Mungkin saya tidak di dalaam grup itu")
 #=============COMMAND KICKER===========================#
-                elif text.lower() == 'Sk':
+                elif text.lower() == 'Masuk':
                   if msg._from in admin:
                     if msg.toType == 2:
                         group = line.getGroup(to)
@@ -2131,13 +2270,33 @@ def lineBot(op):
                         kc.acceptGroupInvitationByTicket(to,format(str(ticket)))
                         time.sleep(0.01)
                         ke.acceptGroupInvitationByTicket(to,format(str(ticket)))
-                        time.sleep(0.01) 
+                        time.sleep(0.01)
                         kt.acceptGroupInvitationByTicket(to,format(str(ticket)))
-                        time.sleep(0.01)   
+                        time.sleep(0.01)
                         group.preventedJoinByTicket = True
                         random.choice(KAC).updateGroup(group)
                         print ("Kicker Join")
-
+                elif text.lower() == 'Cin':
+                  if msg._from in admin:
+                    if msg.toType == 2:
+                        group = line.getGroup(to)
+                        group.preventedJoinByTicket = False
+                        line.updateGroup(group)
+                        invsend = 0
+                        ticket = line.reissueGroupTicket(to)
+                        ki.acceptGroupInvitationByTicket(to,format(str(ticket)))
+                        time.sleep(0.01)
+                        kk.acceptGroupInvitationByTicket(to,format(str(ticket)))
+                        time.sleep(0.01)
+                        kc.acceptGroupInvitationByTicket(to,format(str(ticket)))
+                        time.sleep(0.01)
+                        ke.acceptGroupInvitationByTicket(to,format(str(ticket)))
+                        time.sleep(0.01)
+                        kt.acceptGroupInvitationByTicket(to,format(str(ticket)))
+                        time.sleep(0.01)
+                        group.preventedJoinByTicket = True
+                        random.choice(KAC).updateGroup(group)
+                        print ("Kicker Join")
                 elif 'Sk3 ' in msg.text.lower():
                   if msg._from in admin:
                       targets = []
@@ -2200,8 +2359,8 @@ def lineBot(op):
                                 ki.removeAllMessages(op.param2)
                                 kk.removeAllMessages(op.param2)
                                 kc.removeAllMessages(op.param2)
-                                ke.removeAllMessages(op.param2)  
-                                kt.removeAllMessages(op.param2) 
+                                ke.removeAllMessages(op.param2) 
+                                kt.removeAllMessages(op.param2)
                                 line.removeAllMessages(op.param2)
                                 line.sendMessage(msg.to,"Done")
                             except:
@@ -2213,20 +2372,20 @@ def lineBot(op):
                         ki.leaveGroup(msg.to)
                         kk.leaveGroup(msg.to)
                         kc.leaveGroup(msg.to)
-                        ke.leaveGroup(msg.to)  
-                        kt.leaveGroup(msg.to)  
+                        ke.leaveGroup(msg.to)
+                        kt.leaveGroup(msg.to)
                         line.leaveGroup(msg.to)
                         print ("Kicker Leave")
 
-                elif text.lower() == "Sk baperall":
+                elif text.lower() == "Pulang":
                     if msg._from in admin:
                         gid = line.getGroupIdsJoined()
                         for i in gid:
                             ki.leaveGroup(i)
                             kk.leaveGroup(i)
                             kc.leaveGroup(i)
-                            ke.leaveGroup(i)   
-                            kt.leaveGroup(i) 
+                            ke.leaveGroup(i)
+                            kt.leaveGroup(i)
                             line.leaveGroup(i)
                             print ("Kicker Leave All group")       
 #===========BOT UPDATE============#         
@@ -2281,32 +2440,51 @@ def lineBot(op):
                           end = '\n'
                           mc += str(c) + ". " +line.getGroup(group).name + "\n"
                       line.sendMessage(msg.to,"Protection\n\nProtect Url :\n"+ma+"\nProtect Kick:\n"+mb+"\nprotect Join:\n"+md+"\nProtect Cancel:\n"+md+"\nProtect Guest:\n"+md+"\nProtect Invite:\n"+mc+"\nTotal「%s」Grup protect" %(str(len(protectqr)+len(protectkick)+len(protectjoin)+len(protectcancel)+len(protectinvite))))
-
+                     
                 elif text.lower() == "Respon":
                   if msg._from in admin:
                       ki.sendText(msg.to,"I")
                       kk.sendText(msg.to,"L")
                       kc.sendText(msg.to,"O")
                       ke.sendText(msg.to,"V")
-                      line.sendText(msg.to,"E")  
+                      line.sendText(msg.to,"E")
                       kt.sendText(msg.to,"YOU")
-                      random.choice(KAC).sendText(msg.to,"😍😍😍😍\nMy\nBOJO😆😆\n\ncreator\nBy:line://ti/p/~dhenz415")
-                      
-                elif text.lower() == "Skbuka qr":
+                      line.sendText(msg.to,"😍😍😍😍\nMy\nBOJO😆😆\n\ncreator\nBy:line://ti/p/~d/henz415")
+                     
+                elif text.lower() ==  "Skname":
+                  if msg._from in admin:
+                      line.sendText(msg.to,"A")
+                      ki.sendText(msg.to,"B")
+                      kk.sendText(msg.to,"C")
+                      kc.sendText(msg.to,"D")
+                      ke.sendText(msg.to,"E")
+                      kt.sendText(msg.to,"F")
+                      random.choice(KAC).sendText(msg.to,"Hadir smua siap protect")
+                     
+                elif text.lower() == "qr on":
                   if msg._from in admin:
                       if msg.toType == 2:
                          X = line.getGroup(msg.to)
                          X.preventedJoinByTicket = False
                          line.updateGroup(X)
-                                  
-                elif text.lower() == "Sktutup qr":
+                     
+                elif text.lower() == "sayang":
+                  if msg._from in admin:
+                      ki.sendText(msg.to,"Yaa\nSayang")
+                      kk.sendText(msg.to,"Kangen\nSayang")
+                      kc.sendText(msg.to,"Kojom\nSayang")
+                      ke.sendText(msg.to,"Ehhhh\nSayang")
+                      kt.sendText(msg.to,"Beb\nSayang")
+                      line.sendText(msg.to,"Callme\nSayang")
+                     
+                elif text.lower() == "qr off":
                   if msg._from in admin:
                       if msg.toType == 2:
                          X = line.getGroup(msg.to)
                          X.preventedJoinByTicket = True
                          line.updateGroup(X)
 
-                elif text.lower() == "Sk qr":
+                elif text.lower() == "sk qr":
                   if msg._from in admin:
                       if msg.toType == 2:
                          x = line.getGroup(msg.to)
@@ -2315,11 +2493,30 @@ def lineBot(op):
                             line.updateGroup(x)
                          gurl = line.reissueGroupTicket(msg.to)
                          line.sendMessage(msg.to, "Nama : "+str(x.name)+ "\nUrl grup : http://line.me/R/ti/g/"+gurl)
-                          
-                elif text.lower() == "Skkinvite":
+                     
+                elif text.lower() == "skkinvite":
                   if msg._from in admin:
                       settings["invite"] = True
                       line.sendText(msg.to,"sᴇɴᴅ ᴄᴏɴᴛᴀᴄᴛ")
+                     
+                elif text.lower() == "gantipp":
+                  if msg._from in admin + staff: 
+                      settings["foto"] = True
+                      line.sendMessage(to, "Silahkan kirim gambarnya")
+                    
+                elif text.lower() == "masuk":
+                  if msg._from in admin:
+                     try:
+                          anggota = [kiMID,kkMID,kcMID,keMID,ktMID]
+                          line.inviteIntoGroup(msg.to, anggota)
+                          ki.acceptGroupInvitation(msg.to)
+                          kk.acceptGroupInvitation(msg.to)
+                          kc.acceptGroupInvitation(msg.to)
+                          ke.acceptGroupInvitation(msg.to)
+                          kt.acceptGroupInvitation(msg.to)
+                     except:
+                          pass
+
 #=============COMMAND PROTECT=========================#
 #===========Protection============#
                 elif 'Protecturl ' in msg.text:
