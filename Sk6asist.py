@@ -31,7 +31,7 @@ kc.log("Auth Token : " + str(kc.authToken))
 ke = LINE("EvTSKsOn3RQIhZ2nbZO6.chgBH3fOy9IdR8N3NJMLvG.8pD5GJSUdlkVFBQlAwrNdVpuZqE7AvwEzA/VpECkGPg=")
 ke.log("Auth Token : " + str(ke.authToken))
 
-kt = LINE("Eww6jCPmzmdUsMZA2ti8.mwds3zzyP6ZSgIsaUQANoa.9cscWam1iZ+0AunSY+20aXZ1Uy96AZSubIOOiF5nYqU=")
+kt = LINE("Ew9HsmpCyV1ngOk4uHP8.mwds3zzyP6ZSgIsaUQANoa.DRlIyQmz7FE3g3qPOXoLnNV5+5JEhjChfVj03vOR+MA=")
 kt.log("Auth Token : " + str(kt.authToken))
 
 
@@ -2090,6 +2090,9 @@ def lineBot(op):
                     helpKicker = helpkicker()
                     line.sendMessage(to, str(helpKicker))
 #==============================================================================#
+                elif text.lower() == "me":
+                  if msg._from in admin:
+                     line.sendContact(to, str(msg._from))
                 elif text.lower() == 'sp':
                   if msg._from in admin:
                     start = time.time()
@@ -2187,16 +2190,7 @@ def lineBot(op):
                     for i in creator:
                         ma = line.getContact(i)
                         line.sendMessage(msg.to, None, contentMetadata={'mid': i}, contentType=13)
-                
-                elif text.lower() == 'gue':
-                  if msg._from in admin:
-                     sendMessageWithMention(to, msg._from)
-
-                elif text.lower() == 'me':
-                  if msg._from in admin:
-                     sendMessageWithMention(to, lineMID)
-                     line.sendContact(to, lineMID)
-
+                     
                 elif text.lower() == "mid ":
                   if msg._from in admin:
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
@@ -2228,7 +2222,7 @@ def lineBot(op):
                         h += "[%s]:%s\n" % (line.getGroup(i).name,i)
                     line.sendText(msg.to,h)
 #===========================================================================#
-                elif msg.text in ["Sksiri"]:
+                elif msg.text in ["sksiri"]:
                   if msg._from in admin:
                     if msg.toType == 2:
                         print("Kick Siri")
@@ -2255,7 +2249,7 @@ def lineBot(op):
                       except:
                         line.sendText(msg.to,"Mungkin saya tidak di dalaam grup itu")
 #=============COMMAND KICKER===========================#
-                elif text.lower() == 'Masuk':
+                elif text.lower() == 'masuk':
                   if msg._from in admin:
                     if msg.toType == 2:
                         group = line.getGroup(to)
@@ -2276,7 +2270,7 @@ def lineBot(op):
                         group.preventedJoinByTicket = True
                         random.choice(KAC).updateGroup(group)
                         print ("Kicker Join")
-                elif text.lower() == 'Cin':
+                elif text.lower() == 'cin':
                   if msg._from in admin:
                     if msg.toType == 2:
                         group = line.getGroup(to)
@@ -2297,7 +2291,7 @@ def lineBot(op):
                         group.preventedJoinByTicket = True
                         random.choice(KAC).updateGroup(group)
                         print ("Kicker Join")
-                elif 'Sk3 ' in msg.text.lower():
+                elif 'sk3 ' in msg.text.lower():
                   if msg._from in admin:
                       targets = []
                       key = eval(msg.contentMetadata["MENTION"])
@@ -2311,7 +2305,7 @@ def lineBot(op):
                           except:
                               ke.sendMessage(msg.to,"Limit kaka 😫")
 
-                elif 'Sk4 ' in msg.text.lower():
+                elif 'sk4 ' in msg.text.lower():
                   if msg._from in admin:
                       targets = []
                       key = eval(msg.contentMetadata["MENTION"])
@@ -2325,7 +2319,7 @@ def lineBot(op):
                           except:
                               kc.sendMessage(msg.to,"Limit kaka 😫")                               
 
-                elif 'Sk1 ' in msg.text.lower():
+                elif 'sk1 ' in msg.text.lower():
                   if msg._from in admin:
                       targets = []
                       key = eval(msg.contentMetadata["MENTION"])
@@ -2339,7 +2333,7 @@ def lineBot(op):
                           except:
                               ki.sendMessage(msg.to,"Limit kaka 😫")                               
 
-                elif 'Sk2 ' in msg.text.lower():
+                elif 'sk2 ' in msg.text.lower():
                   if msg._from in admin:
                       targets = []
                       key = eval(msg.contentMetadata["MENTION"])
@@ -2367,7 +2361,7 @@ def lineBot(op):
                                 pass
                                 print ("done")
 
-                elif text.lower() == "Baper":
+                elif text.lower() == "baper":
                     if msg._from in admin:
                         ki.leaveGroup(msg.to)
                         kk.leaveGroup(msg.to)
@@ -2377,7 +2371,7 @@ def lineBot(op):
                         line.leaveGroup(msg.to)
                         print ("Kicker Leave")
 
-                elif text.lower() == "Pulang":
+                elif text.lower() == "pulang":
                     if msg._from in admin:
                         gid = line.getGroupIdsJoined()
                         for i in gid:
@@ -2441,7 +2435,7 @@ def lineBot(op):
                           mc += str(c) + ". " +line.getGroup(group).name + "\n"
                       line.sendMessage(msg.to,"Protection\n\nProtect Url :\n"+ma+"\nProtect Kick:\n"+mb+"\nprotect Join:\n"+md+"\nProtect Cancel:\n"+md+"\nProtect Guest:\n"+md+"\nProtect Invite:\n"+mc+"\nTotal「%s」Grup protect" %(str(len(protectqr)+len(protectkick)+len(protectjoin)+len(protectcancel)+len(protectinvite))))
                      
-                elif text.lower() == "Respon":
+                elif text.lower() == "respon":
                   if msg._from in admin:
                       ki.sendText(msg.to,"I")
                       kk.sendText(msg.to,"L")
@@ -2451,7 +2445,7 @@ def lineBot(op):
                       kt.sendText(msg.to,"YOU")
                       line.sendText(msg.to,"😍😍😍😍\nMy\nBOJO😆😆\n\ncreator\nBy:line://ti/p/~d/henz415")
                      
-                elif text.lower() ==  "Skname":
+                elif text.lower() ==  "skname":
                   if msg._from in admin:
                       line.sendText(msg.to,"A")
                       ki.sendText(msg.to,"B")
@@ -2460,6 +2454,16 @@ def lineBot(op):
                       ke.sendText(msg.to,"E")
                       kt.sendText(msg.to,"F")
                       random.choice(KAC).sendText(msg.to,"Hadir smua siap protect")
+                   
+                elif text.lower() == "mybot":
+                  if msg._from in admin:
+                      line.sendContact(to, lineMID)
+                      line.sendContact(to, kiMID)
+                      line.sendContact(to, kkMID)
+                      line.sendContact(to, kcMID)
+                      line.sendContact(to, keMID)
+                      line.sendContact(to, ktMID)
+                      line.sendText(msg.to,"Hadir smua bos")
                      
                 elif text.lower() == "qr on":
                   if msg._from in admin:
@@ -2633,9 +2637,9 @@ def lineBot(op):
                                  msgs = "Protect invite sudah tidak aktif"
                             line.sendMessage(msg.to, "「Dinonaktifkan」\n" + msgs)
 
-                elif 'Skpro ' in msg.text:
+                elif 'skpro ' in msg.text:
                   if msg._from in admin:
-                      spl = msg.text.replace('Skpro ','')
+                      spl = msg.text.replace('skpro ','')
                       if spl == 'on':
                           if msg.to in protectqr:
                                msgs = ""
@@ -2695,7 +2699,7 @@ def lineBot(op):
                                 msgs = "Semua protect sudah off\nDi Group : " +str(ginfo.name)
                             line.sendMessage(msg.to, "「Dinonaktifkan」\n" + msgs)
 #===========COMMAND BLACKLIST============#
-                elif "Ban " in msg.text:
+                elif "ban " in msg.text:
                   if msg._from in admin:
                       key = eval(msg.contentMetadata["MENTION"])
                       key["MENTIONEES"][0]["M"]
@@ -2732,7 +2736,7 @@ def lineBot(op):
                       ke.sendMessage(msg.to,"☠⚝ཧ̌̌̌̌̌ł̌̌̌̌̌̌Ꮮ̌̌̌̌̌̌̌̌̌̌̌ཛ̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌སོ̌̌̌̌̌̌̌̌̌̌̌ਓ̌̌̌̌̌̌̌བཽ̐̌̌̌̌ㄒ̌̌™⚝☠ Blacklist User\n\n"+ma+"\nTotal「%s」Blacklist User" %(str(len(settings["blacklist"]))))
                       kt.sendMessage(msg.to,"☠⚝ཧ̌̌̌̌̌ł̌̌̌̌̌̌Ꮮ̌̌̌̌̌̌̌̌̌̌̌ཛ̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌སོ̌̌̌̌̌̌̌̌̌̌̌ਓ̌̌̌̌̌̌̌བཽ̐̌̌̌̌ㄒ̌̌™⚝☠ Blacklist User\n\n"+ma+"\nTotal「%s」Blacklist User" %(str(len(settings["blacklist"]))))
                       
-                elif text.lower() == 'Skcban':
+                elif text.lower() == 'skcban':
                   if msg._from in admin:
                     settings["blacklist"] = {}
                     ragets = line.getContacts(settings["blacklist"])
