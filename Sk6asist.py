@@ -34,6 +34,8 @@ ke.log("Auth Token : " + str(ke.authToken))
 kt = LINE("Ew9HsmpCyV1ngOk4uHP8.mwds3zzyP6ZSgIsaUQANoa.DRlIyQmz7FE3g3qPOXoLnNV5+5JEhjChfVj03vOR+MA=")
 kt.log("Auth Token : " + str(kt.authToken))
 
+ks = LINE ("EwSwuiEsUqXnKDyXzGTe./GMO2qK6yM2XPFA7d5YKVG.d+L9eAGNDZu61vA01JcWjyPpznU6IDvX5LoCrCeSyLo=")
+ks.log("Auth Token : " + str(ks.authToken))
 
 lineMID = line.profile.mid
 lineProfile = line.getProfile()
@@ -59,20 +61,27 @@ ktMID = kt.profile.mid
 ktProfile = kt.getProfile()
 ktSettings = kt.getSettings()
 
+ksMID = ks.profile.mid
+ksProfile = ks.getProfile()
+ksSettings = ks.getSettings()
+
+oepoll = OEPoll(ks)
 oepoll = OEPoll(kt)
 oepoll = OEPoll(ke)
 oepoll = OEPoll(kc)
 oepoll = OEPoll(kk)
 oepoll = OEPoll(ki)
 oepoll = OEPoll(line)
-KAC = [line,ki,kk,kc,ke,kt]
+
 lineMID = line.getProfile().mid
 kiMID = ki.getProfile().mid
 kkMID = kk.getProfile().mid
 kcMID = kc.getProfile().mid
 keMID = ke.getProfile().mid
 ktMID = kt.getProfile().mid
-Bots=[lineMID,kiMID,kkMID,kcMID,keMID,ktMID]
+ksMID = ks.getProfile().mid
+Bots=[lineMID,kiMID,kkMID,kcMID,keMID,ktMID,ksMID]
+KAC = [line,ki,kk,kc,ke,kt,ks]
 creator = ["ufdc20b3a00b5e8f31e4f91017eb361b0","ufa6ba7212303e85f5460d9600264471c","u0f6df437fe3e32f07c4562308ac430a9"]
 admin=['ufdc20b3a00b5e8f31e4f91017eb361b0','ufa6ba7212303e85f5460d9600264471c']
 Bots = Bots
@@ -83,6 +92,7 @@ kkMIDProfile = kk.getProfile()
 kcMIDProfile = kc.getProfile()
 keMIDProfile = ke.getProfile()
 ktMIDProfile = kt.getProfile()
+ksMIDProfile = ks.getProfile()
 
 lineMIDSettings = line.getSettings()
 kiMIDSettings = ki.getSettings()
@@ -90,13 +100,15 @@ kkMIDSettings = kk.getSettings()
 kcMIDSettings = kc.getSettings()
 keMIDSettings = ke.getSettings()
 ktMIDSettings = kt.getSettings()
+ksMIDSettings = ks.getSettings()
 
 responsename = line.getProfile().displayName
 responsename1 = ki.getProfile().displayName
 responsename2 = kk.getProfile().displayName
 responsename3 = kc.getProfile().displayName
 responsename4 = ke.getProfile().displayName
-responsename4 = kt.getProfile().displayName
+responsename5 = kt.getProfile().displayName
+responsename5 = ks.getProfile().displayName
 
 protectqr = []
 protectkick = []
@@ -104,14 +116,16 @@ protectjoin = []
 protectinvite = []
 protectcancel = []
 protectguest = []
+protectantijs = []
 autocancel = []
 autoinvite = []
 autoleaveroom = []
 targets = []
+ghost = []
 #==============================================================================#
 settings = {
     "autoJoin": True,
-    'autoCancel':{"on":True,"members":1},	
+    'autoCancel':{"on":True,"members":1},
     "autoLeave": False,
     "leaveRoom": False,
     "autoJoinTicket": False,
@@ -181,7 +195,8 @@ Protect = {
     "linkprotect": False,
     "Protectguest": False,
     "Protectjoin": False,
-
+    "Protectantijs": False,
+    "Ghost": False,
 }
 
 read = {
@@ -248,6 +263,12 @@ backup.pictureStatus = contact.pictureStatus
 
 contact = kt.getProfile()
 backup = kt.getProfile()
+backup.dispalyName = contact.displayName
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+contact = ks.getProfile()
+ackup = ks.getProfile()
 backup.dispalyName = contact.displayName
 backup.statusMessage = contact.statusMessage
 backup.pictureStatus = contact.pictureStatus
@@ -331,48 +352,48 @@ def command(text):
     return cmd
   
 def myhelp():
-    myHelp = "🦆☠⚝Help Silent⚝☠ " + "\n" + \
-                  "🦆🕂「Help」"+ "\n" + \
-                  "🦆🕂「Hk」"+ "\n" + \
-                  "🦆🕂「Sp」"+ "\n" + \
-                  "🦆🕂「Waktu」"+ "\n" + \
-                  "🦆🕂「Mid @」"+ "\n" + \
-                  "🦆🕂「LG2」"+ "\n" + \
-                  "🦆🕂「invite: 」"+ "\n" + \
-                  "🦆🕂「Set」"+ "\n" + \
-                  "🦆🕂「Botlist」"+ "\n" + \
-                  "🦆🕂「Protectlist」"+ "\n" + \
-                  "🦆🕂「Skpro「On/Off」"+ "\n" + \
-                  "🦆🕂「Creator」"+ "\n" + \
-                  "🦆🕂「Autojoin「On/Off」"+ "\n" + \
-                  "🦆🕂「Autoleave「On/Off」"+ "\n" + \
-                  "🦆🕂「Autojointicket「On/Off」"+ "\n" + \
-                  "🦆🕂「K「On/Off」"+ "\n" + \
-                  "🦆🕂「Sk」"+ "\n" + \
-                  "🦆🕂「Reject」"+ "\n" + \
-                  "🦆🕂「Bc:」"+ "\n" + \
-                  "🦆🕂「Skinvite」"+ "\n" + \
-                  "🦆🕂「Ban @」"+ "\n" + \
-                  "🦆🕂「Beklist」"+ "\n" + \
-                  "🦆🕂「Skcban」"+ "\n" + \
-                  "🦆🕂「Sk baperall」"+ "\n" + \
-                  "🦆🕂「Autojoin on\off」"+ "\n" + \
-                  "🦆🕂「Skrespon」"+ "\n" + \
-                  "🦆🕂「Skbuka qr」"+ "\n" + \
-                  "🦆🕂「Sktutup qr」"+ "\n" + \
-                  "🦆🕂「Skpulang」"+ "\n" + \
-                  "🦆🕂「Sk qr」"+ "\n" + \
-                  "🦆🕂☠⚝ཧ̌̌̌̌̌ł̌̌̌̌̌̌Ꮮ̌̌̌̌̌̌̌̌̌̌̌ཛ̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌སོ̌̌̌̌̌̌̌̌̌̌̌ਓ̌̌̌̌̌̌̌བཽ̐̌̌̌̌ㄒ̌̌™⚝☠"
+    myHelp = "╔═[·✪·Help Menu™·✪·]═╗\n" + \
+                  "╠❂➣ 「Help」"+ "\n" + \
+                  "╠❂➣ 「Hk」"+ "\n" + \
+                  "╠❂➣ 「Sp」"+ "\n" + \
+                  "╠❂➣ 「Waktu」"+ "\n" + \
+                  "╠❂➣ 「Mid @」"+ "\n" + \
+                  "╠❂➣ 「LG2」"+ "\n" + \
+                  "╠❂➣ 「invite: 」"+ "\n" + \
+                  "╠❂➣ 「Set」"+ "\n" + \
+                  "╠❂➣ 「Botlist」"+ "\n" + \
+                  "╠❂➣ 「Protectlist」"+ "\n" + \
+                  "╠❂➣ 「Skpro「On/Off」"+ "\n" + \
+                  "╠❂➣ 「Creator」"+ "\n" + \
+                  "╠❂➣ 「Autojoin「On/Off」"+ "\n" + \
+                  "╠❂➣ 「Autoleave「On/Off」"+ "\n" + \
+                  "╠❂➣ 「Autojointicket「On/Off」"+ "\n" + \
+                  "╠❂➣ 「K「On/Off」"+ "\n" + \
+                  "╠❂➣ 「Sk」"+ "\n" + \
+                  "╠❂➣ 「Reject」"+ "\n" + \
+                  "╠❂➣ 「Bc:」"+ "\n" + \
+                  "╠❂➣ 「Skinvite」"+ "\n" + \
+                  "╠❂➣ 「Ban @」"+ "\n" + \
+                  "╠❂➣ 「Sklist」"+ "\n" + \
+                  "╠❂➣ 「Skcban」"+ "\n" + \
+                  "╠❂➣ 「Kabur」"+ "\n" + \
+                  "╠❂➣ 「Autojoin on\off」"+ "\n" + \
+                  "╠❂➣ 「Skrespon」"+ "\n" + \
+                  "╠❂➣ 「Skbuka qr」"+ "\n" + \
+                  "╠❂➣ 「Sktutup qr」"+ "\n" + \
+                  "╠❂➣ 「Pulang」"+ "\n" + \
+                  "╠❂➣ 「Sk qr」"+ "\n" + \
+                  "╚═[°✪° ™Silent Bot Pro °✪°]═╝"
     return myHelp
 
 def helpkicker():
-    helpKicker = "🦆 🛠⚝ʜᴇʟᴘ ᴋɪᴄᴋᴇʀ⚝🛠" + "\n" + \
-                 "🦆🕂 Sk3 @" + "\n" + \
-                 "🦆🕂 Sk2 @" + "\n" + \
-                 "🦆🕂 Sk4 @" + "\n" + \
-                 "🦆🕂 Sk1 @" + "\n" + \
-                 "🦆🕂 Sksiri @"+ "\n" + \
-                 "🦆🕂 ☠ཧ̐̐̐̐̐̐̐̐̐̐̐̐̐ł̐̐̐̐̐̐̐̐Ꮮ̐̐̐̐̐̐̐̐̐̐̐̐̐̐̐̐ཛ̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̐̐̐̐̐̐̐̐̐̐̐སོ̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̐̐̐̐̐̐̐ਓ̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̐̐̐̐̐བཽ̐̐̐̐̐̐̐̐̐̐̐̐ㄒ̌̐̐̐̐̐̐̐̐̌™☠"
+    helpKicker = "╔═[·✪Help Kicker™✪·]╗\n" + \
+                 "╠❂➣  Sk3 @" + "\n" + \
+                 "╠❂➣  Sk2 @" + "\n" + \
+                 "╠❂➣  Sk4 @" + "\n" + \
+                 "╠❂➣  Sk1 @" + "\n" + \
+                 "╠❂➣  Sksiri @"+ "\n" + \
+                 "╚═[✪™Silent Bot °✪°]╝"
     return helpKicker
 #==============================================================================#
 def lineBot(op):
@@ -522,7 +543,50 @@ def lineBot(op):
                 if matched_list == []:
                     pass
                 else:
-                    kt.cancelGroupInvitation(op.param1, matched_list)		
+                    kt.cancelGroupInvitation(op.param1, matched_list)
+        if op.type == 19:
+            try:
+                if op.param1 in ghost:
+                     if op.param2 not in Bots and op.param2 not in owner and op.param2 not in admin and                         op.param2 not in staff:
+                        G = line.getGroup(op.param1)
+                        G.preventedJoinByTicket = False
+                        line.updateGroup(G)
+                        invsend = 0
+                        Ticket = line.reissueGroupTicket(op.param1)
+                        ks.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        ks.kickoutFromGroup(op.param1,[op.param2])
+                        ks.leaveGroup(op.param1)
+                        X = line.getGroup(op.param1)
+                        X.preventedJoinByTicket = True
+                        line.updateGroup(X)
+            except:
+                pass
+
+        if op.type == 19:
+            try:
+                if op.param1 in protectantijs:
+                  if op.param3 in mid:
+                     if op.param2 not in Bots and op.param2 not in owner and op.param2 not in admin and op.param2 not in staff:
+                        ks.acceptGroupInvitation(op.param1)
+                        G = ks.getGroup(op.param1)
+                        G.prevenARoinByTicket = False
+                        ks.updateGroup(G)
+                        Ticket = ks.reissueGroupTicket(op.param1)
+                        line.acceptGroupInvitationByTicket(op.param1,Ticket)
+                        ks.kickoutFromGroup(op.param1,[op.param2])
+                        G.prevenARoinByTicket = True
+                        ks.updateGroup(G)
+                        wait["blacklist"][op.param2] = True
+                        ks.leaveGroup(op.param1)
+                        line.inviteIntoGroup(op.param1,[ksMID])
+                        line.inviteIntoGroup(op.param1,[admin])
+                  else:
+                       pass
+            except:
+                   pass
+
+
+
 #======================================================================================================#
 #======================================================================================================#  
         if op.type == 13:
@@ -544,7 +608,13 @@ def lineBot(op):
             if op.param3 in ktMID:
                 if op.param2 in Bots:
                     kt.acceptGroupInvitation(op.param1)
+            if op.param3 in ksMID:
+                if op.param2 in Bots:
+                    ks.acceptGroupInvitation(op.param1)
 #--------------------------------------------------------
+            if op.param3 in lineMID:
+                            if op.param2 in ksMID:
+                                line.acceptGroupInvitation(op.param1)
             if op.param3 in lineMID:
 		            if op.param2 in kiMID:
 		                line.acceptGroupInvitation(op.param1)
@@ -562,6 +632,9 @@ def lineBot(op):
 		                line.acceptGroupInvitation(op.param1)
 #--------------------------------------------------------
             if op.param3 in kiMID:
+                            if op.param2 in ksMID:
+                                line.acceptGroupInvitation(op.param1)
+            if op.param3 in kiMID:
 		            if op.param2 in lineMID:
 		                ki.acceptGroupInvitation(op.param1)
             if op.param3 in kiMID:
@@ -577,6 +650,9 @@ def lineBot(op):
 		            if op.param2 in ktMID:
 		                ki.acceptGroupInvitation(op.param1)
 #--------------------------------------------------------
+            if op.param3 in kkMID:
+                            if op.param2 in ksMID:
+                                kk.acceptGroupInvitation(op.param1)
             if op.param3 in kkMID:
 		            if op.param2 in lineMID:
 		                kk.acceptGroupInvitation(op.param1)
@@ -876,6 +952,13 @@ def lineBot(op):
                     if op.param2 in Bots and admin:
                         kt.acceptGroupInvitation(op.param1)
                         ginfo = kt.getGroup(op.param1)
+                    else:
+                        kt.acceptGroupInvitation(op.param1)
+            if ksMID in op.param3:
+                if settings["autoJoin"] == True:
+                    if op.param2 in Bots and admin:
+                        ks.acceptGroupInvitation(op.param1)
+                        ginfo = ks.getGroup(op.param1)
                     else:
                         kt.acceptGroupInvitation(op.param1)
 #======================================================================================================#
@@ -2092,7 +2175,9 @@ def lineBot(op):
 #==============================================================================#
                 elif text.lower() == "me":
                   if msg._from in admin:
-                     line.sendContact(to, str(msg._from))
+                    line.sendContact(to, str(msg._from))
+                    line.sendMessage(to, "My creator : https://line.me/ti/p/~dhenz415")
+
                 elif text.lower() == 'sp':
                   if msg._from in admin:
                     start = time.time()
@@ -2130,26 +2215,30 @@ def lineBot(op):
                 elif text.lower() == 'set':
                   if msg._from in admin:
                     try:
-                        ret_ = "Protect ☠ཧ̐̐̐̐̐̐̐ł̐̐̐̐̐̐̐̐Ꮮ̐̐̐̐̐̐̐̐̐̐̐̐̐̐̐̐ཛ̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̐̐̐̐̐̐̐̐̐̐̐སོ̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̐̐̐̐̐̐̐ਓ̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̐̐̐̐̐བཽ̐̐̐̐̐̐̐̐̐̐̐̐ㄒ̌̐̐̐̐̐̐̐̐̌™☠ "
-                        if settings["autoJoinTicket"] == True: ret_ += "🦆 Auto Join Ticket「on」\n"
-                        else: ret_ += "🦆 Auto Join Ticket「off」\n"
-                        if settings["contact"] == True: ret_ +="🦆 Contact「on」\n"
-                        else: ret_ +="🦆 Contact「off」\n"
-                        if settings["autoJoin"] == True: ret_ +="🦆 Autojoin「on」\n"
-                        else: ret_ +="🦆 Autojoin「off」\n"
-                        if msg.to in protectqr: ret_ +="🦆 Protecturl「on」\n"
-                        else: ret_ +="🦆 Protecturl「off」\n"
-                        if msg.to in protectjoin: ret_ +="🦆 Protectjoin「on」\n"
-                        else: ret_ +="🦆 Protectjoin「off」\n"
-                        if msg.to in protectkick: ret_ +="🦆 Protectkick「on」\n"
-                        else: ret_ +="🦆 Protectkick「off」\n"
-                        if msg.to in protectcancel: ret_ +="🦆 Protectcancel「on」\n"
-                        else: ret_ +="🦆 Protectcancel「off」\n"
-                        if msg.to in protectguest: ret_ +="🦆 Protectguest「on」\n"
-                        else: ret_ +="🦆 Protectguest「off」\n"
-                        if msg.to in protectinvite: ret_ +="🦆 Protectinvite「on」\n"
-                        else: ret_ +="🦆 Protectinvite「off」\n"
-                        ret_ += "\n☠ཧ̐̐̐̐̐̐̐ł̐̐̐̐̐̐̐̐Ꮮ̐̐̐̐̐̐̐̐̐̐̐̐̐̐̐̐ཛ̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̐̐̐̐̐̐̐̐̐̐̐སོ̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̐̐̐̐̐̐̐ਓ̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̌̐̐̐̐̐བཽ̐̐̐̐̐̐̐̐̐̐̐̐ㄒ̌̐̐̐̐̐̐̐̐̌™☠"
+                        ret_ = "  ╔═[°✪°SETING BOT°✪°]╗  \n"
+                        if settings["autoJoinTicket"] == True: ret_ +="  ╠❂➣ Auto Join Ticket「on」\n"
+                        else: ret_ +="  ╠❂➣ Auto Join Ticket「 off」 \n"
+                        if settings["contact"] == True: ret_ +="  ╠❂➣ Contact「 on」 \n"
+                        else: ret_ +="  ╠❂➣ Contact「 off」 \n"
+                        if settings["autoJoin"] == True: ret_ +="  ╠❂➣ Autojoin「 on」 \n"
+                        else: ret_ +="  ╠❂➣ Autojoin「 off」 \n"
+                        if msg.to in protectqr: ret_ +="  ╠❂➣ Protecturl「 on」 \n"
+                        else: ret_ +="  ╠❂➣ Protecturl「 off」 \n"
+                        if msg.to in protectjoin: ret_ +="  ╠❂➣ Protectjoin「 on」 \n"
+                        else: ret_ +="  ╠❂➣ Protectjoin「 off」 \n"
+                        if msg.to in protectkick: ret_ +="  ╠❂➣ Protectkick「 on」 \n"
+                        else: ret_ +="  ╠❂➣ Protectkick「 off」 \n"
+                        if msg.to in protectcancel: ret_ +="  ╠❂➣ Protectcancel「 on」 \n"
+                        else: ret_ +="  ╠❂➣ Protectcancel「 off」 \n"
+                        if msg.to in protectguest: ret_ +="  ╠❂➣ Protectguest「 on」 \n"
+                        else: ret_ +="  ╠❂➣ Protectguest「 off」 \n"
+                        if msg.to in protectinvite: ret_ +="  ╠❂➣ Protectinvite「 on」 \n"
+                        else: ret_ +="  ╠❂➣ Protectinvite「 off」 \n"
+                        if msg.to in protectantijs: ret_ +="  ╠❂➣ Protectantijs 「on」\n"
+                        else: ret_ +="  ╠❂➣ Protectantijs「off」\n"
+                        if msg.to in ghost: ret_ +="  ╠❂➣ Ghost「on」\n"
+                        else: ret_ +="  ╠❂➣ Ghost 「 off」 \n"
+                        ret_ += "  ╚═[°✪°SILENT BOT Pro°✪°]╝"
                         line.sendMessage(to, str(ret_))
                     except Exception as e:
                         line.sendMessage(msg.to, str(e))
@@ -2361,7 +2450,7 @@ def lineBot(op):
                                 pass
                                 print ("done")
 
-                elif text.lower() == "baper":
+                elif text.lower() == "kabur":
                     if msg._from in admin:
                         ki.leaveGroup(msg.to)
                         kk.leaveGroup(msg.to)
@@ -2443,17 +2532,25 @@ def lineBot(op):
                       ke.sendText(msg.to,"V")
                       line.sendText(msg.to,"E")
                       kt.sendText(msg.to,"YOU")
-                      line.sendText(msg.to,"😍😍😍😍\nMy\nBOJO😆😆\n\ncreator\nBy:line://ti/p/~d/henz415")
+                      line.sendText(msg.to,"😍😍😍😍\nMy\nBOJO😆😆\n\ncreator\nBy:line://ti/p/~dhenz415")
                      
                 elif text.lower() ==  "skname":
                   if msg._from in admin:
-                      line.sendText(msg.to,"A")
-                      ki.sendText(msg.to,"B")
-                      kk.sendText(msg.to,"C")
-                      kc.sendText(msg.to,"D")
-                      ke.sendText(msg.to,"E")
-                      kt.sendText(msg.to,"F")
-                      random.choice(KAC).sendText(msg.to,"Hadir smua siap protect")
+                      line.sendText(msg.to,"⚝ཧ̌̌̌̌ł̌̌̌̌Ꮮ̌̌̌̌ཛ̌̌̌̌སོ̌̌̌ਓ̌̌̌̌བཽ̐̌̌ㄒ™⚝")
+                      ki.sendText(msg.to,"⚝ཧ̌̌̌̌ł̌̌̌̌Ꮮ̌̌̌̌ཛ̌̌̌̌སོ̌̌̌ਓ̌̌̌̌བཽ̐̌̌ㄒ™⚝")
+                      kk.sendText(msg.to,"⚝ཧ̌̌̌̌ł̌̌̌̌Ꮮ̌̌̌̌ཛ̌̌̌̌སོ̌̌̌ਓ̌̌̌̌བཽ̐̌̌ㄒ™⚝")
+                      kc.sendText(msg.to,"⚝ཧ̌̌̌̌ł̌̌̌̌Ꮮ̌̌̌̌ཛ̌̌̌̌སོ̌̌̌ਓ̌̌̌̌བཽ̐̌̌ㄒ™⚝")
+                      ke.sendText(msg.to,"⚝ཧ̌̌̌̌ł̌̌̌̌Ꮮ̌̌̌̌ཛ̌̌̌̌སོ̌̌̌ਓ̌̌̌̌བཽ̐̌̌ㄒ™⚝")
+                      kt.sendText(msg.to,"⚝ཧ̌̌̌̌ł̌̌̌̌Ꮮ̌̌̌̌ཛ̌̌̌̌སོ̌̌̌ਓ̌̌̌̌བཽ̐̌̌ㄒ™⚝")
+                      random.choice(KAC).sendText(msg.to,"⚝ཧ̌̌̌̌ł̌̌̌̌Ꮮ̌̌̌̌ཛ̌̌̌̌སོ̌̌̌ਓ̌̌̌̌བཽ̐̌̌ㄒ™⚝ Allready")
+                elif text.lower() == "botmid":
+                  if msg._from in admin:
+                      line.sendText(msg.to,lineMID)
+                      ki.sendText(msg.to,kiMID)
+                      kk.sendText(msg.to,kkMID)
+                      kc.sendText(msg.to,kcMID)
+                      ke.sendText(msg.to,keMID)
+                      kt.sendText(msg.to,ktMID)
                    
                 elif text.lower() == "mybot":
                   if msg._from in admin:
@@ -2498,7 +2595,7 @@ def lineBot(op):
                          gurl = line.reissueGroupTicket(msg.to)
                          line.sendMessage(msg.to, "Nama : "+str(x.name)+ "\nUrl grup : http://line.me/R/ti/g/"+gurl)
                      
-                elif text.lower() == "skkinvite":
+                elif text.lower() == "skinvite":
                   if msg._from in admin:
                       settings["invite"] = True
                       line.sendText(msg.to,"sᴇɴᴅ ᴄᴏɴᴛᴀᴄᴛ")
@@ -2637,6 +2734,58 @@ def lineBot(op):
                                  msgs = "Protect invite sudah tidak aktif"
                             line.sendMessage(msg.to, "「Dinonaktifkan」\n" + msgs)
 
+                elif 'Protectantijs ' in msg.text:
+                      spl = msg.text.replace('Protectantijs ','')
+                      if spl == 'on':
+                          if msg.to in protectantijs:
+                               msgs = "Protect antiJS sudah aktif"
+                          else:
+                               protectantijs.append(msg.to)
+                               ginfo = line.getGroup(msg.to)
+                               msgs = "Protect antiJS diaktifkan\nDi Group : " +str(ginfo.name)
+                          line.sendMessage(msg.to, "「Diaktifkan」\n" + msgs)
+                      elif spl == 'off':
+                            if msg.to in protectantijs:
+                                 protectantijs.remove(msg.to)
+                                 ginfo = line.getGroup(msg.to)
+                                 msgs = "Protect antiJS dinonaktifkan\nDi Group : " +str(ginfo.name)
+                            else:
+                                 msgs = "Protect antiJS sudah tidak aktif"
+                            line.sendMessage(msg.to, "「Dinonaktifkan」\n" + msgs)
+
+
+                elif 'Ghost ' in msg.text:
+                      spl = msg.text.replace('Ghost ','')
+                      if spl == 'on':
+                            if msg.to in ghost:
+                                 msgs = "Ghost sudah aktif"
+                            else:
+                                 ghost.append(msg.to)
+                                 ginfo = line.getGroup(msg.to)
+                                 msgs = "Ghost Diaktifkan\nDi Group : " +str(ginfo.name)
+                                 line.sendMessage(msg.to, "「Diaktifkan」\n" + msgs)
+                      elif spl == 'off':
+                            if msg.to in ghost:
+                                 ghost.remove(msg.to)
+                                 ginfo = line.getGroup(msg.to)
+                                 msgs = "Ghost Dinonaktifkan\nDi Group : " +str(ginfo.name)
+                            else:
+                                 msgs = "Ghost Sudah Tidak Aktif"
+                            line.sendMessage(msg.to, "「Dinonaktifkan」\n" + msgs)                                    
+
+
+                      if op.param3 in ksMID:
+                            if op.param2 not in Bots and op.param2 not in owner and op.param2 not in admin and op.param2 not in staff:
+                                 line.kickoutFromGroup(op.param1,[op.param2])
+                                 line.findAndAddContactsByMid(op.param3)
+                                 line.inviteIntoGroup(op.param1,[ksMID])
+                                 line.sendMessage(op.param1,"=AntiJS Invited=")
+                            else:
+                                 line.kickoutFromGroup(op.param1,[op.param2])
+                                 line.findAndAddContactsByMid(op.param3)
+                                 line.inviteIntoGroup(op.param1,[ksMID])
+                                 line.sendMessage(op.param1,"=AntiJS Invited=")
+                        
                 elif 'skpro ' in msg.text:
                   if msg._from in admin:
                       spl = msg.text.replace('skpro ','')
@@ -2768,8 +2917,8 @@ def lineBot(op):
                 ki.leaveRoom(op.param1)
                 kk.leaveRoom(op.param1)
                 kc.leaveRoom(op.param1)
-                ke.leaveRoom(op.param1) 
-                kt.leaveRoom(op.param1) 
+                ke.leaveRoom(op.param1)
+                kt.leaveRoom(op.param1)
                 
         if op.type == 24:
             if settings['leaveRoom'] == True:
@@ -2777,7 +2926,7 @@ def lineBot(op):
                 ki.leaveRoom(op.param1)
                 kk.leaveRoom(op.param1)
                 kc.leaveRoom(op.param1)
-                ke.leaveRoom(op.param1)  
+                ke.leaveRoom(op.param1) 
                 kt.leaveRoom(op.param1) 
 #==============================================================================#
 #==============================================================================#                             
