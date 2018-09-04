@@ -15,28 +15,28 @@ from googletrans import Translator
 
 #===============================================================================================
 
-cl = LINE("")
-line.log("Auth Token : " + str(line.authToken))
+cl = LINE("Ew8SF3jaX40p5EwPyXPb.SCwNhYE4y4LUNus/QfFtwW.8s9NKsiNBuqHCbPRl31j9SPl56juoixAPTV99eWC0XQ=")
+cl.log("Auth Token : " + str(cl.authToken))
 ki = LINE("EwSWhgJ3rpm9UJapNxPa.y5VxpNSHKkly4g+m7/UdgG.0vC9JMFGAp7LHn/bT141oGO+SkG6mYpxl8RBhwAM3hI=")
-ki.log("Auth Token : " + str(line.authToken))
+ki.log("Auth Token : " + str(ki.authToken))
 kk = LINE("Ew6ffhWhAJHX9Zd1Elw1.tymKwInKTygiyMM1IX4vuq.Z/pXh+y9aSIsgc+jWj1dNiZ63f2Oz3IwVu4kTRAlvmU=")
-kk.log("Auth Token : " + str(line.authToken))
+kk.log("Auth Token : " + str(kk.authToken))
 kc = LINE("EwPL9GuJT7Yg3LI1TeM0.6J6qgHD0ZdGzCmnm366bia.gbwIhg/zNNWIHX63fnfc5mwmvt2uD1VPoM+6A+3+rLU=")
-kc.log("Auth Token : " + str(line.authToken))
+kc.log("Auth Token : " + str(kc.authToken))
 kb = LINE("EwuR5GWpcVQ6eGtw7AU4.XuQrezi1qIyJlRlvV0wxra.adC3tl3rOuS2rLo0udQcWrlht3qnQCe0G3R3+t1/lRk=")
-kb.log("Auth Token : " + str(line.authToken))
+kb.log("Auth Token : " + str(kb.authToken))
 sw = LINE("Ew2fWhvUOtg1yCBHfqZ0.+CiloGc16pmEt5ebFRnHSa.ky9+kaiQSVX2p2Uc/d4+PCCJoEOCnfhSGCNwaY/N2FQ=")
-sw.log("Auth Token : " + str(line.authToken))
+sw.log("Auth Token : " + str(sw.authToken))
 
 print ("☆☆☆[ Login Success ]☆☆☆")
 
 #call = Call(cl)
 poll = OEPoll(cl)
 
-creator = ["c1ae625e44653d3445d5688d0b756506e"]
-owner = ["c1ae625e44653d3445d5688d0b756506e"]
-admin = ["c1ae625e44653d3445d5688d0b756506e"]
-staff = ["c1ae625e44653d3445d5688d0b756506e"]
+creator = ["ub1c5a71f27b863896e9d44bea857d35b"]
+owner = ["ub1c5a71f27b863896e9d44bea857d35b"]
+admin = ["ub1c5a71f27b863896e9d44bea857d35b"]
+staff = ["ub1c5a71f27b863896e9d44bea857d35b"]
 mid = cl.getProfile().mid
 Amid = ki.getProfile().mid
 Bmid = kk.getProfile().mid
