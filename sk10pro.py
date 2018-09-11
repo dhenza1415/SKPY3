@@ -11,34 +11,34 @@ import time, random, sys, json, codecs, threading, glob, re, string, os, request
 #==============================================================================#
 botStart = time.time()
 #==============================================================================#
-line = LINE("")
+line = LINE("Ewxb8B7y6FFNQrLYnjzf.RcO+gtSFS9mgSS+yYZoNVW.O2R7V2gdt7q7rP3hxLJeciWqKKejGzu0C9CcoMelHWc=")
 line.log("Auth Token : " + str(line.authToken))
 
-ki = LINE("")
+ki = LINE("EwU0yDZc63UGlH7ZJoSa.y5VxpNSHKkly4g+m7/UdgG.Fw8OCdPViIDqJFSFZITLCGbIWS48gQLif9YiG4JGtGM=")
 ki.log("Auth Token : " + str(ki.authToken))
 
-kk = LINE("")
+kk = LINE("Ewn4ZVvABCA5A3nIGST1.tymKwInKTygiyMM1IX4vuq.us8xaWpcNu6eQQvIlWJ0huyFbRnkQWZrBXlX9vbE0AQ=")
 kk.log("Auth Token : " + str(kk.authToken))
 
-kc = LINE("")
+kc = LINE("Ewn4ZVvABCA5A3nIGST1.tymKwInKTygiyMM1IX4vuq.us8xaWpcNu6eQQvIlWJ0huyFbRnkQWZrBXlX9vbE0AQ=")
 kc.log("Auth Token : " + str(kc.authToken))
 
-ke = LINE("")
+ke = LINE("EwmeDMH5F0Sp2blWFvC2.UgaA6PtgDwrhl20KYKxh8G.7C7hVqrk5NuTbw+4CvxjYbZwCwV6yJBWnlUYRRV0KQA=")
 ke.log("Auth Token : " + str(ke.authToken))
 
-kt = LINE("")
+kt = LINE("EwCqSj7vTrO5yWnNRNic.hXCnFx3vJv8ciUzAvtjvla.Oxfw46OIz80cHCaKVcuZdU3hMo1l/YCijzr6MvwqtAA=")
 kt.log("Auth Token : " + str(ke.authToken))
 
-ks = LINE("")
+ks = LINE("EweUsWBpnH7MyBjWI5Dd.aP+4t908CNlNB+oE1FY77q.3qD+VxmnmJe9OEA8Wq6/mXD5vsbAiOLPGmZl5g3ZJbI=")
 ks.log("Auth Token : " + str(ke.authToken))
 
-k1 = LINE("")
+k1 = LINE("EwwEl68NlJtrq9p3Rix2.NHscB+p2tF8+WfxlwOtcGG.doSyNuXwygVNKh06//Gu/ih7llMVriq7sp4PaajnO0k=")
 k1.log("Auth Token : " + str(ke.authToken))
 
-k2 = LINE("")
+k2 = LINE("EwwEl68NlJtrq9p3Rix2.NHscB+p2tF8+WfxlwOtcGG.doSyNuXwygVNKh06//Gu/ih7llMVriq7sp4PaajnO0k=")
 k2.log("Auth Token : " + str(ke.authToken))
 
-k3 = LINE("")
+k3 = LINE("Ewo0Rry2SvHKR4yBioL1.b9b4KE9tuDYCMk8g4aoFyq.+U41q5dN2MzB1o/DBD8wHAKSStlXVYLyBv6HihNCIm0=")
 k3.log("Auth Token : " + str(ke.authToken))
 
 lineMID = line.profile.mid
@@ -94,15 +94,15 @@ kiMID = ki.getProfile().mid
 kkMID = kk.getProfile().mid
 kcMID = kc.getProfile().mid
 keMID = ke.getProfile().mid
-ktMID = ke.getProfile().mid
-ksMID = ke.getProfile().mid
-k1MID = ke.getProfile().mid
-k2MID = ke.getProfile().mid
-k3MID = ke.getProfile().mid
+ktMID = kt.getProfile().mid
+ksMID = ks.getProfile().mid
+k1MID = k1.getProfile().mid
+k2MID = k2.getProfile().mid
+k3MID = k3.getProfile().mid
 
-Bots=[lineMID,kiMID,kkMID,kcMID,keMID]
-creator = ["ufa6ba7212303e85f5460d9600264471c","u0f6df437fe3e32f07c4562308ac430a9"]
-admin=['ufa6ba7212303e85f5460d9600264471c']
+Bots=[lineMID,kiMID,kkMID,kcMID,keMID,ktMID,ksMID,k1MID,k2MID,k3MID]
+creator = ["ub1c5a71f27b863896e9d44bea857d35b","u0f6df437fe3e32f07c4562308ac430a9"]
+admin=['ub1c5a71f27b863896e9d44bea857d35b']
 Bots = Bots 
 
 protectJs = []
@@ -428,8 +428,8 @@ def lineBot(op):
                 if matched_list == []:
                     pass
                 else:
-                    ke.cancelGroupInvitation(op.param1, matched_list)         
-	    if op.type == 13:
+                    ke.cancelGroupInvitation(op.param1, matched_list)          
+        if op.type == 13:
             if ktMID in op.param3:
                 G = kt.getGroup(op.param1)
                 if settings["autoJoin"] == True:
@@ -595,19 +595,19 @@ def lineBot(op):
             if op.param3 in lineMID:
 		            if op.param2 in keMID:
 		                line.acceptGroupInvitation(op.param1)
-		    if op.param3 in lineMID:
+            if op.param3 in lineMID:
 		            if op.param2 in ktMID:
-		                line.acceptGroupInvitation(op.param1)
-		    if op.param3 in lineMID:
+                                line.acceptGroupInvitation(op.param1)
+            if op.param3 in lineMID:
 		            if op.param2 in ksMID:
 		                line.acceptGroupInvitation(op.param1)
-		    if op.param3 in lineMID:
+            if op.param3 in lineMID:
 		            if op.param2 in k1MID:
 		                line.acceptGroupInvitation(op.param1)
-		    if op.param3 in lineMID:
+            if op.param3 in lineMID:
 		            if op.param2 in k2MID:
 		                line.acceptGroupInvitation(op.param1)
-		    if op.param3 in lineMID:
+            if op.param3 in lineMID:
 		            if op.param2 in k3MID:
 		                line.acceptGroupInvitation(op.param1)
 #--------------------------------------------------------
@@ -623,19 +623,19 @@ def lineBot(op):
             if op.param3 in kiMID:
 		            if op.param2 in keMID:
 		                ki.acceptGroupInvitation(op.param1)
-		    if op.param3 in kiMID:
+            if op.param3 in kiMID:
 		            if op.param2 in ktMID:
 		                ki.acceptGroupInvitation(op.param1)
-		     if op.param3 in kiMID:
+            if op.param3 in kiMID:
 		            if op.param2 in ksMID:
 		                ki.acceptGroupInvitation(op.param1)
-		     if op.param3 in kiMID:
+            if op.param3 in kiMID:
 		            if op.param2 in k1MID:
 		                ki.acceptGroupInvitation(op.param1)
-		     if op.param3 in kiMID:
+            if op.param3 in kiMID:
 		            if op.param2 in k2MID:
 		                ki.acceptGroupInvitation(op.param1)
-		     if op.param3 in kiMID:
+            if op.param3 in kiMID:
 		            if op.param2 in k3MID:
 		                ki.acceptGroupInvitation(op.param1)
 #--------------------------------------------------------
@@ -651,25 +651,25 @@ def lineBot(op):
             if op.param3 in kkMID:
 		            if op.param2 in keMID:
 		                kk.acceptGroupInvitation(op.param1)
-		    if op.param3 in kiMID:
+            if op.param3 in kiMID:
 		            if op.param2 in ktMID:
 		                ki.acceptGroupInvitation(op.param1)
-		    if op.param3 in kiMID:
+            if op.param3 in kiMID:
 		            if op.param2 in ksMID:
 		                ki.acceptGroupInvitation(op.param1)
-	        if op.param3 in kiMID:
+            if op.param3 in kiMID:
 		            if op.param2 in k1MID:
 		                ki.acceptGroupInvitation(op.param1)
-		     if op.param3 in kiMID:
+            if op.param3 in kiMID:
 		            if op.param2 in k2MID:
 		                ki.acceptGroupInvitation(op.param1)
-		      if op.param3 in kiMID:
+            if op.param3 in kiMID:
 		            if op.param2 in k3MID:
 		                ki.acceptGroupInvitation(op.param1)
 #--------------------------------------------------------
             if op.param3 in kcMID:
-            		if op.param2 in lineMID:
-		                kc.acceptGroupInvitation(op.param1)
+                  	    if op.param2 in lineMID:
+                                kc.acceptGroupInvitation(op.param1)
             if op.param3 in kcMID:
 		            if op.param2 in kiMID:
 		                kc.acceptGroupInvitation(op.param1)
@@ -679,28 +679,28 @@ def lineBot(op):
             if op.param3 in kcMID:
 		            if op.param2 in keMID:
 		                kc.acceptGroupInvitation(op.param1)
-		    if op.param3 in kcMID:
+            if op.param3 in kcMID:
 		            if op.param2 in keMID:
 		                kc.acceptGroupInvitation(op.param1)
-		    if op.param3 in kcMID:
+            if op.param3 in kcMID:
 		            if op.param2 in ktMID:
 		                kc.acceptGroupInvitation(op.param1)
-		    if op.param3 in kcMID:
+            if op.param3 in kcMID:
 		            if op.param2 in keMID:
 		                kc.acceptGroupInvitation(op.param1)
-		    if op.param3 in kcMID:
+            if op.param3 in kcMID:
 		            if op.param2 in ktMID:
 		                kc.acceptGroupInvitation(op.param1)
-		    if op.param3 in kcMID:
+            if op.param3 in kcMID:
 		            if op.param2 in ksMID:
 		                kc.acceptGroupInvitation(op.param1)
-		    if op.param3 in kcMID:
+            if op.param3 in kcMID:
 		            if op.param2 in k1MID:
 		                kc.acceptGroupInvitation(op.param1)
-		    if op.param3 in kcMID:
+            if op.param3 in kcMID:
 		            if op.param2 in k2MID:
 		                kc.acceptGroupInvitation(op.param1)
-		    if op.param3 in kcMID:
+            if op.param3 in kcMID:
 		            if op.param2 in k3MID:
 		                kc.acceptGroupInvitation(op.param1)
 #--------------------------------------------------------  
@@ -716,23 +716,23 @@ def lineBot(op):
             if op.param3 in keMID:
 		            if op.param2 in kcMID:
 		                ke.acceptGroupInvitation(op.param1)
-		     if op.param3 in keMID:
+            if op.param3 in keMID:
 		            if op.param2 in ktMID:
 		                ke.acceptGroupInvitation(op.param1)
-		     if op.param3 in keMID:
+            if op.param3 in keMID:
 		            if op.param2 in ksMID:
 		                ke.acceptGroupInvitation(op.param1)
-		     if op.param3 in keMID:
+            if op.param3 in keMID:
 		            if op.param2 in k1MID:
 		                ke.acceptGroupInvitation(op.param1)
-		     if op.param3 in keMID:
+            if op.param3 in keMID:
 		            if op.param2 in k2MID:
 		                ke.acceptGroupInvitation(op.param1)
-		     if op.param3 in keMID:
+            if op.param3 in keMID:
 		            if op.param2 in k3MID:
 		                ke.acceptGroupInvitation(op.param1)
 #--------------------------------------------------------  
-		    if op.param3 in ktMID:
+            if op.param3 in ktMID:
 		            if op.param2 in lineMID:
 		                kt.acceptGroupInvitation(op.param1)
             if op.param3 in ktMID:
@@ -744,23 +744,23 @@ def lineBot(op):
             if op.param3 in ktMID:
 		            if op.param2 in keMID:
 		                kt.acceptGroupInvitation(op.param1)
-		    if op.param3 in ktMID:
+            if op.param3 in ktMID:
 		            if op.param2 in ktMID:
 		                kt.acceptGroupInvitation(op.param1)
-		    if op.param3 in ktMID:
+            if op.param3 in ktMID:
 		            if op.param2 in ksMID:
 		                kt.acceptGroupInvitation(op.param1)
-		    if op.param3 in ktMID:
+            if op.param3 in ktMID:
 		            if op.param2 in k1MID:
 		                kt.acceptGroupInvitation(op.param1)
-		    if op.param3 in ktMID:
+            if op.param3 in ktMID:
 		            if op.param2 in k2MID:
 		                kt.acceptGroupInvitation(op.param1)
-		    if op.param3 in ktMID:
+            if op.param3 in ktMID:
 		            if op.param2 in k3MID:
 		                kt.acceptGroupInvitation(op.param1)
 #--------------------------------------------------------  
-		    if op.param3 in ksMID:
+            if op.param3 in ksMID:
 		            if op.param2 in lineMID:
 		                ks.acceptGroupInvitation(op.param1)
             if op.param3 in ksMID:
@@ -772,26 +772,26 @@ def lineBot(op):
             if op.param3 in ksMID:
 		            if op.param2 in kcMID:
 		                ks.acceptGroupInvitation(op.param1)
-		    if op.param3 in ksMID:
+            if op.param3 in ksMID:
 		            if op.param2 in keMID:
 		                ks.acceptGroupInvitation(op.param1)
-		    if op.param3 in ksMID:
+            if op.param3 in ksMID:
 		            if op.param2 in ktMID:
 		                ks.acceptGroupInvitation(op.param1)
-		    if op.param3 in ksMID:
+            if op.param3 in ksMID:
 		            if op.param2 in ksMID:
 		                ks.acceptGroupInvitation(op.param1)
-		    if op.param3 in ksMID:
+            if op.param3 in ksMID:
 		            if op.param2 in k1MID:
 		                ks.acceptGroupInvitation(op.param1)
-		    if op.param3 in ksMID:
+            if op.param3 in ksMID:
 		            if op.param2 in k2MID:
 		                ks.acceptGroupInvitation(op.param1)
-		    if op.param3 in ksMID:
+            if op.param3 in ksMID:
 		            if op.param2 in k3MID:
 		                ks.acceptGroupInvitation(op.param1)
 #--------------------------------------------------------  
-		    if op.param3 in k1MID:
+            if op.param3 in k1MID:
 		            if op.param2 in lineMID:
 		                k1.acceptGroupInvitation(op.param1)
             if op.param3 in k1MID:
@@ -803,23 +803,23 @@ def lineBot(op):
             if op.param3 in k1MID:
 		            if op.param2 in kcMID:
 		                k1.acceptGroupInvitation(op.param1)
-		    if op.param3 in k1MID:
+            if op.param3 in k1MID:
 		            if op.param2 in keMID:
 		                k1.acceptGroupInvitation(op.param1)
-		    if op.param3 in k2MID:
+            if op.param3 in k2MID:
 		            if op.param2 in ktMID:
 		                k1.acceptGroupInvitation(op.param1)
-		    if op.param3 in k1MID:
+            if op.param3 in k1MID:
 		            if op.param2 in ksMID:
 		                k1.acceptGroupInvitation(op.param1)
-		    if op.param3 in k1MID:
+            if op.param3 in k1MID:
 		            if op.param2 in k2MID:
 		                k1.acceptGroupInvitation(op.param1)
-		    if op.param3 in k1MID:
+            if op.param3 in k1MID:
 		            if op.param2 in k3MID:
 		                k1.acceptGroupInvitation(op.param1)
 #--------------------------------------------------------  
-		    if op.param3 in k2MID:
+            if op.param3 in k2MID:
 		            if op.param2 in lineMID:
 		                k2.acceptGroupInvitation(op.param1)
             if op.param3 in k2MID:
@@ -831,12 +831,68 @@ def lineBot(op):
             if op.param3 in k2MID:
 		            if op.param2 in kcMID:
 		                k2.acceptGroupInvitation(op.param1)
-		    if op.param3 in k2MID:
+            if op.param3 in k2MID:
 		            if op.param2 in kcMID:
 		                k2.acceptGroupInvitation(op.param1)
-		    if op.param3 in k2MID:
+            if op.param3 in k2MID:
 		            if op.param2 in kcMID:
 		                k2.acceptGroupInvitation(op.param1)
+            if op.param3 in k2MID:
+                            if op.param2 in lineMID:
+                                k2.acceptGroupInvitation(op.param1)
+            if op.param3 in k2MID:
+                            if op.param2 in kiMID:
+                                k2.acceptGroupInvitation(op.param1)
+            if op.param3 in k2MID:
+                            if op.param2 in kkMID:
+                                k2.acceptGroupInvitation(op.param1)
+            if op.param3 in k2MID:
+                            if op.param2 in kcMID:
+                                k2.acceptGroupInvitation(op.param1)
+            if op.param3 in k2MID:
+                            if op.param2 in kcMID:
+                                k2.acceptGroupInvitation(op.param1)
+            if op.param3 in k2MID:
+                            if op.param2 in kcMID:
+                                k2.acceptGroupInvitation(op.param1)
+
+#--------------------------------------------------------
+            if op.param3 in k3MID:
+                            if op.param2 in lineMID:
+                                k3.acceptGroupInvitation(op.param1)
+            if op.param3 in kMID:
+                            if op.param2 in kiMID:
+                                k3.acceptGroupInvitation(op.param1)
+            if op.param3 in k3MID:
+                            if op.param2 in kkMID:
+                                k3.acceptGroupInvitation(op.param1)
+            if op.param3 in k3MID:
+                            if op.param2 in kcMID:
+                                k3.acceptGroupInvitation(op.param1)
+            if op.param3 in k2MID:
+                            if op.param2 in kcMID:
+                                k3.acceptGroupInvitation(op.param1)
+            if op.param3 in k2MID:
+                            if op.param2 in kcMID:
+                                k3.acceptGroupInvitation(op.param1)
+            if op.param3 in k3MID:
+                            if op.param2 in lineMID:
+                                k3.acceptGroupInvitation(op.param1)
+            if op.param3 in k3MID:
+                            if op.param2 in kiMID:
+                                k3.acceptGroupInvitation(op.param1)
+            if op.param3 in k2MID:
+                            if op.param2 in kkMID:
+                                k2.acceptGroupInvitation(op.param1)
+            if op.param3 in k3MID:
+                            if op.param2 in kcMID:
+                                k3.acceptGroupInvitation(op.param1)
+            if op.param3 in k2MID:
+                            if op.param2 in kcMID:
+                                k3.acceptGroupInvitation(op.param1)
+            if op.param3 in k3MID:
+                            if op.param2 in kcMID:
+                                k3.acceptGroupInvitation(op.param1)
 #=============================================================================#
         if op.type == 11:
             if op.param1 in protectqr:
@@ -1211,17 +1267,17 @@ def lineBot(op):
                                                     k1.kickoutFromGroup(op.param1,[op.param2])
                                             except:
                                                 try:
-                                         	      if op.param3 not in settings["blacklist"]:
+                                                    if op.param3 not in settings["blacklist"]:
                                                        k2.kickoutFromGroup(op.param1,[op.param2])
-                                            except:
+                                                except:
                                                    try:
-                                    	              if op.param3 not in settings["blacklist"]:
+                                                       if op.param3 not in settings["blacklist"]:
                                                           k3.kickoutFromGroup(op.param1,[op.param2])
                                                    except:
                                                          try:
-                                                            if op.param3 not in settings["blacklist"]:
+                                                             if op.param3 not in settings["blacklist"]:
                                                                 random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-                                                        except:
+                                                         except:
                                                                 pass
                                       
                 return         
