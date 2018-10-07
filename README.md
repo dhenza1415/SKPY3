@@ -29,7 +29,7 @@ sudo pip3 install wikipedia<br>
 sudo pip3 install youtube_dl<br>
 sudo pip3 install ffmpy<br>
 cd SKPY3<br>
-python3 Silentpy3.py<br><br>
+python3 sk10pro.py<br><br>
 # Notes
 1. Jika os selain ubuntu bisa kalian sesuaikan sendiri<br>
 2. Untuk intal termux tinggal ganti sudo jadi pip3<br>
