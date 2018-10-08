@@ -11,19 +11,19 @@ import time, random, sys, json, codecs, threading, glob, re, string, os, request
 #==============================================================================#
 botStart = time.time()
 #==============================================================================#
-line = LINE("ExEcxHj5QuUVtne7Jh62.UgaA6PtgDwrhl20KYKxh8G.jDFzYuMrbg/fXhMOpkgHanIh6FwfDgXYxC3sxqryJEU=")
+line = LINE("")
 line.log("Auth Token : " + str(line.authToken))
 
-ki = LINE("ExBOLMKOWruBZZQaJSRc.gYj8eX14kEAzvSbV9TTxla.PzQZouNRrHdG5y4Tc2frFkTRncxxNxy7B8wrlkVq92M=")
+ki = LINE("")
 ki.log("Auth Token : " + str(ki.authToken))
 
-kk = LINE("ExCX3jvtRhNadPQ5kOd3.nsM86g66WhxwizzU8wsg8W.+PLxXC3SGusC2axmPK1B8J9oaGAySFceOoANTbEDyBs=")
+kk = LINE("")
 kk.log("Auth Token : " + str(kk.authToken))
 
-kc = LINE("Exj6n626k0j0B4qsLCfd.jB/U5D2EIoY5xGkQ7FOTtq.rn0m806Ge7WWX0YnUiNHNL7ZtTcyxODhRyWA8JipX+k=")
+kc = LINE("")
 kc.log("Auth Token : " + str(kc.authToken))
 
-ke = LINE("ExlPJeAFSKiz3SStKB87.BiGakU1CeeRwXmH42j19bW.k9kGIB2LapRyXTuYFtGyEvZ0ebidIhpR+5jk+dMiGMo=")
+ke = LINE("")
 ke.log("Auth Token : " + str(ke.authToken))
 
 kt = LINE("")
@@ -101,7 +101,7 @@ k2MID = k2.getProfile().mid
 k3MID = k3.getProfile().mid
 
 Bots=[lineMID,kiMID,kkMID,kcMID,keMID,ktMID,ksMID,k1MID,k2MID,k3MID]
-creator = ["ub1c5a71f27b863896e9d44bea857d35b","u0f6df437fe3e32f07c4562308ac430a9"]
+creator = ["ub1c5a71f27b863896e9d44bea857d35b","u0f6df437fe3e32f07c4562308ac430a9","u135efc0e80bf25248983ab548bb6c010"]
 admin=['ub1c5a71f27b863896e9d44bea857d35b']
 Bots = Bots 
 
