@@ -1,5 +1,5 @@
 # Instruksi
-Cara pemakaian sc ini mengubakan libs <b>[linepy](https://github.com/dhenza1415/SKPY3)</b>,
+Cara pemakaian sc ini menggunakan libs <b>[linepy](https://github.com/dhenza1415/SKPY3)</b>,
 # Cara install
 - VPS Ubuntu
 1. pip install python3-pip<br>
