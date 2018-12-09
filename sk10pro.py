@@ -116,6 +116,8 @@ g2MID = g2.getProfile().mid
 Bots=[lineMID,kiMID,kkMID,kcMID,keMID,ktMID,ksMID,k1MID,k2MID,k3MID,g1MID,g2MID]
 creator = ["ub1c5a71f27b863896e9d44bea857d35b","u0f6df437fe3e32f07c4562308ac430a9","u135efc0e80bf25248983ab548bb6c010"]
 admin=['ub1c5a71f27b863896e9d44bea857d35b']
+owner=['ub1c5a71f27b863896e9d44bea857d35b']
+staff=['ub1c5a71f27b863896e9d44bea857d35b']
 Bots = Bots 
 #==============================================================================#
 protectantijs = []
@@ -983,6 +985,8 @@ def lineBot(op):
                     random.choice(KAC).cancelGroupInvitation(op.param1,[op.param3])
                 else:
                     pass
+                    
+        
 #======================================================================================================#
         if op.type == 19:
             if op.param1 in ghost:
@@ -1018,12 +1022,12 @@ def lineBot(op):
                                     
         if op.type == 19:
             if op.param1 in protectantijs:
-                if mid in op.param3:
+                if lineMOD in op.param3:
                     if op.param2 not in Bots and op.param2 not in owner and op.param2 not in admin and op.param2 not in staff:
                         try:
                             g1.acceptGroupInvitation(op.param1)
                             g2.acceptGroupInvitation(op.param1)            
-                            g2.inviteIntoGroup(op.param1,[mid])
+                            g2.inviteIntoGroup(op.param1,[lineMID])
                             g1.kickoutFromGroup(op.param1,[op.param2])
                             line.acceptGroupInvitation(op.param1)
                             settings["blacklist"][op.param2] = True
@@ -1032,6 +1036,17 @@ def lineBot(op):
                             line.inviteIntoGroup(op.param1,[g1MID,g2MID])
                         except:
                             pass
+            if op.param3 in g1MID:
+                    if op.param2 not in Bots and op.param2 not in owner and op.param2 not in admin and op.param2 not in staff:
+                        line.kickoutFromGroup(op.param1,[op.param2])
+                        line.findAndAddContactsByMid(op.param3)
+                        line.inviteIntoGroup(op.param1,[g1MID])
+                        line.sendMessage(op.param1,"anti kicker sucsess invite")
+                    else:
+                        line.kickoutFromGroup(op.param1,[op.param2])
+                        line.findAndAddContactsByMid(op.param3)
+                        line.inviteIntoGroup(op.param1,[g1MID])
+                        line.sendMessage(op.param1,"anti kicker sucsess invite")
 
             if op.param1 in protectantijs:
                 if g2MID in op.param3:
@@ -1153,11 +1168,11 @@ def lineBot(op):
                                                         line.acceptGroupInvitation(op.param1)
                                                     except:
                                                         try:
-                                                            G = random.choice(ABC).getGroup(op.param1)
+                                                            G = random.choice(KAC).getGroup(op.param1)
                                                             G.preventedJoinByTicket = False
-                                                            random.choice(ABC).updateGroup(G)
+                                                            random.choice(KAC).updateGroup(G)
                                                             invsend = 0
-                                                            Ticket = random.choice(ABC).reissueGroupTicket(op.param1)
+                                                            Ticket = random.choice(KAC).reissueGroupTicket(op.param1)
                                                             g1.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             g2.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             line.acceptGroupInvitationByTicket(op.param1,Ticket)
@@ -1170,13 +1185,13 @@ def lineBot(op):
                                                             k1.acceptGroupInvitationByTicket(op.param1,Ticket)	
                                                             k2.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             k3.acceptGroupInvitationByTicket(op.param1,Ticket)	                                                            
-                                                            random.choice(TUA).kickoutFromGroup(op.param1,[op.param2])
-                                                            random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
+                                                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                                                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                                                             g1.leaveGroup(op.param1)
                                                             g2.leaveGroup(op.param1)
-                                                            X = random.choice(ABC).getGroup(op.param1)
+                                                            X = random.choice(KAC).getGroup(op.param1)
                                                             X.preventedJoinByTicket = True
-                                                            random.choice(ABC).updateGroup(X) 
+                                                            random.choice(KAC).updateGroup(X) 
                                                         except: 
                                                             try:
                                                                 k3.kickoutFromGroup(op.param1,[op.param2])
@@ -1243,11 +1258,11 @@ def lineBot(op):
                                                         random.coice(KAC).acceptGroupInvitation(op.param1)
                                                     except:
                                                         try:
-                                                            G = random.choice(ABC).getGroup(op.param1)
+                                                            G = random.choice(KAC).getGroup(op.param1)
                                                             G.preventedJoinByTicket = False
-                                                            random.choice(ABC).updateGroup(G)
+                                                            random.choice(KAC).updateGroup(G)
                                                             invsend = 0
-                                                            Ticket = random.choice(ABC).reissueGroupTicket(op.param1)
+                                                            Ticket = random.choice(KAC).reissueGroupTicket(op.param1)
                                                             g1.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             g2.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             line.acceptGroupInvitationByTicket(op.param1,Ticket)
@@ -1260,13 +1275,13 @@ def lineBot(op):
                                                             k1.acceptGroupInvitationByTicket(op.param1,Ticket)	
                                                             k2.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             k3.acceptGroupInvitationByTicket(op.param1,Ticket)	                                                            
-                                                            random.choice(TUA).kickoutFromGroup(op.param1,[op.param2])
-                                                            random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
+                                                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                                                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                                                             g1.leaveGroup(op.param1)
                                                             g2.leaveGroup(op.param1)
-                                                            X = random.choice(ABC).getGroup(op.param1)
+                                                            X = random.choice(KAC).getGroup(op.param1)
                                                             X.preventedJoinByTicket = True
-                                                            random.choice(ABC).updateGroup(X) 
+                                                            random.choice(KAC).updateGroup(X) 
                                                         except:
                                                             try:
                                                                 line.kickoutFromGroup(op.param1,[op.param2])
@@ -1333,11 +1348,11 @@ def lineBot(op):
                                                         kk.acceptGroupInvitation(op.param1)
                                                     except:
                                                         try:
-                                                            G = random.choice(ABC).getGroup(op.param1)
+                                                            G = random.choice(KAC).getGroup(op.param1)
                                                             G.preventedJoinByTicket = False
-                                                            random.choice(ABC).updateGroup(G)
+                                                            random.choice(KAC).updateGroup(G)
                                                             invsend = 0
-                                                            Ticket = random.choice(ABC).reissueGroupTicket(op.param1)
+                                                            Ticket = random.choice(KAC).reissueGroupTicket(op.param1)
                                                             g1.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             g2.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             line.acceptGroupInvitationByTicket(op.param1,Ticket)
@@ -1350,13 +1365,13 @@ def lineBot(op):
                                                             k1.acceptGroupInvitationByTicket(op.param1,Ticket)	
                                                             k2.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             k3.acceptGroupInvitationByTicket(op.param1,Ticket)	                                                            
-                                                            random.choice(TUA).kickoutFromGroup(op.param1,[op.param2])
-                                                            random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
+                                                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                                                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                                                             g1.leaveGroup(op.param1)
                                                             g2.leaveGroup(op.param1)
-                                                            X = random.choice(ABC).getGroup(op.param1)
+                                                            X = random.choice(KAC).getGroup(op.param1)
                                                             X.preventedJoinByTicket = True
-                                                            random.choice(ABC).updateGroup(X) 		                                                            
+                                                            random.choice(KAC).updateGroup(X) 		                                                            
                                                         except:
                                                             try:
                                                                 line.kickoutFromGroup(op.param1,[op.param2])
@@ -1434,11 +1449,11 @@ def lineBot(op):
                                                                 kc.acceptGroupInvitation(op.param1)
                                                             except:
                                                                 try:
-                                                                    G = random.choice(ABC).getGroup(op.param1)
+                                                                    G = random.choice(KAC).getGroup(op.param1)
                                                                     G.preventedJoinByTicket = False
-                                                                    random.choice(ABC).updateGroup(G)
+                                                                    random.choice(KAC).updateGroup(G)
                                                                     invsend = 0
-                                                                    Ticket = random.choice(ABC).reissueGroupTicket(op.param1)
+                                                                    Ticket = random.choice(KAC).reissueGroupTicket(op.param1)
                                                                     g1.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                                     g2.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                                     line.acceptGroupInvitationByTicket(op.param1,Ticket)
@@ -1451,13 +1466,13 @@ def lineBot(op):
                                                                     k1.acceptGroupInvitationByTicket(op.param1,Ticket)	
                                                                     k2.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                                     k3.acceptGroupInvitationByTicket(op.param1,Ticket)	
-                                                                    random.choice(TUA).kickoutFromGroup(op.param1,[op.param2])
-                                                                    random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
+                                                                    random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                                                                    random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                                                                     g1.leaveGroup(op.param1)
                                                                     g2.leaveGroup(op.param1)
-                                                                    X = random.choice(ABC).getGroup(op.param1)
+                                                                    X = random.choice(KAC).getGroup(op.param1)
                                                                     X.preventedJoinByTicket = True
-                                                                    random.choice(ABC).updateGroup(X) 
+                                                                    random.choice(KAC).updateGroup(X) 
                                                                 except:
                                                                     try:
                                                                         kk.kickoutFromGroup(op.param1,[op.param2])
@@ -1524,11 +1539,11 @@ def lineBot(op):
                                                         ke.acceptGroupInvitation(op.param1)
                                                     except:
                                                         try:
-                                                            G = random.choice(ABC).getGroup(op.param1)
+                                                            G = random.choice(KAC).getGroup(op.param1)
                                                             G.preventedJoinByTicket = False
-                                                            random.choice(ABC).updateGroup(G)
+                                                            random.choice(KAC).updateGroup(G)
                                                             invsend = 0
-                                                            Ticket = random.choice(ABC).reissueGroupTicket(op.param1)
+                                                            Ticket = random.choice(KAC).reissueGroupTicket(op.param1)
                                                             g1.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             g2.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             client.acceptGroupInvitationByTicket(op.param1,Ticket)
@@ -1542,13 +1557,13 @@ def lineBot(op):
                                                             k8.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             k9.acceptGroupInvitationByTicket(op.param1,Ticket)	
                                                             k10.acceptGroupInvitationByTicket(op.param1,Ticket)		
-                                                            random.choice(TUA).kickoutFromGroup(op.param1,[op.param2])
-                                                            random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
+                                                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                                                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                                                             g1.leaveGroup(op.param1)
                                                             g2.leaveGroup(op.param1)
-                                                            X = random.choice(ABC).getGroup(op.param1)
+                                                            X = random.choice(KAC).getGroup(op.param1)
                                                             X.preventedJoinByTicket = True
-                                                            random.choice(ABC).updateGroup(X) 
+                                                            random.choice(KAC).updateGroup(X) 
                                                         except:
                                                             try:
                                                                 kc.kickoutFromGroup(op.param1,[op.param2])
@@ -1556,8 +1571,8 @@ def lineBot(op):
                                                                 ke.acceptGroupInvitation(op.param1)
                                                             except:
                                                                 try:
-                                                                    random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
-                                                                    random.choice(ABC).inviteIntoGroup(op.param1,[op.param3])
+                                                                    random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                                                                    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                                                                     ke.acceptGroupInvitation(op.param1)
                                                                 except:
                                                                     pass
@@ -1620,11 +1635,11 @@ def lineBot(op):
                                                         ks.acceptGroupInvitation(op.param1)
                                                     except:
                                                         try:
-                                                            G = random.choice(ABC).getGroup(op.param1)
+                                                            G = random.choice(KAC).getGroup(op.param1)
                                                             G.preventedJoinByTicket = False
-                                                            random.choice(ABC).updateGroup(G)
+                                                            random.choice(KAC).updateGroup(G)
                                                             invsend = 0
-                                                            Ticket = random.choice(ABC).reissueGroupTicket(op.param1)
+                                                            Ticket = random.choice(KAC).reissueGroupTicket(op.param1)
                                                             g1.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             g2.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             client.acceptGroupInvitationByTicket(op.param1,Ticket)
@@ -1638,13 +1653,13 @@ def lineBot(op):
                                                             k8.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             k9.acceptGroupInvitationByTicket(op.param1,Ticket)	
                                                             k10.acceptGroupInvitationByTicket(op.param1,Ticket)		
-                                                            random.choice(TUA).kickoutFromGroup(op.param1,[op.param2])
-                                                            random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
+                                                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                                                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                                                             g1.leaveGroup(op.param1)
                                                             g2.leaveGroup(op.param1)
-                                                            X = random.choice(ABC).getGroup(op.param1)
+                                                            X = random.choice(KAC).getGroup(op.param1)
                                                             X.preventedJoinByTicket = True
-                                                            random.choice(ABC).updateGroup(X) 
+                                                            random.choice(KAC).updateGroup(X) 
                                                         except:
                                                             try:
                                                                 ke.kickoutFromGroup(op.param1,[op.param2])
@@ -1652,8 +1667,8 @@ def lineBot(op):
                                                                 ks.acceptGroupInvitation(op.param1)
                                                             except:
                                                                 try:
-                                                                    random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
-                                                                    random.choice(ABC).inviteIntoGroup(op.param1,[op.param3])
+                                                                    random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                                                                    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                                                                     ks.acceptGroupInvitation(op.param1)
                                                                 except:
                                                                     pass
@@ -1718,11 +1733,11 @@ def lineBot(op):
                                                         kt.acceptGroupInvitation(op.param1)
                                                     except:
                                                         try:
-                                                            G = random.choice(ABC).getGroup(op.param1)
+                                                            G = random.choice(KAC).getGroup(op.param1)
                                                             G.preventedJoinByTicket = False
-                                                            random.choice(ABC).updateGroup(G)
+                                                            random.choice(KAC).updateGroup(G)
                                                             invsend = 0
-                                                            Ticket = random.choice(ABC).reissueGroupTicket(op.param1)
+                                                            Ticket = random.choice(KAC).reissueGroupTicket(op.param1)
                                                             g1.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             g2.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             client.acceptGroupInvitationByTicket(op.param1,Ticket)
@@ -1736,13 +1751,13 @@ def lineBot(op):
                                                             k8.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             k9.acceptGroupInvitationByTicket(op.param1,Ticket)	
                                                             k10.acceptGroupInvitationByTicket(op.param1,Ticket)		
-                                                            random.choice(TUA).kickoutFromGroup(op.param1,[op.param2])
-                                                            random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
+                                                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                                                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                                                             g1.leaveGroup(op.param1)
                                                             g2.leaveGroup(op.param1)
-                                                            X = random.choice(ABC).getGroup(op.param1)
+                                                            X = random.choice(KAC).getGroup(op.param1)
                                                             X.preventedJoinByTicket = True
-                                                            random.choice(ABC).updateGroup(X) 
+                                                            random.choice(KAC).updateGroup(X) 
                                                         except:
                                                             try:
                                                                 ks.kickoutFromGroup(op.param1,[op.param2])
@@ -1750,8 +1765,8 @@ def lineBot(op):
                                                                 kt.acceptGroupInvitation(op.param1)
                                                             except:
                                                                 try:
-                                                                    random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
-                                                                    random.choice(ABC).inviteIntoGroup(op.param1,[op.param3])
+                                                                    random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                                                                    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                                                                     kt.acceptGroupInvitation(op.param1)
                                                                 except:
                                                                     pass                                 
@@ -1768,7 +1783,7 @@ def lineBot(op):
                 if op.param2 in staff:
                     pass
                 else:
-                    wait["blacklist"][op.param2] = True
+                    settings["blacklist"][op.param2] = True
                     try:
                         k2.kickoutFromGroup(op.param1,[op.param2])
                         k2.inviteIntoGroup(op.param1,[op.param3])
@@ -1815,11 +1830,11 @@ def lineBot(op):
                                                         k1.acceptGroupInvitation(op.param1)
                                                     except:
                                                         try:
-                                                            G = random.choice(ABC).getGroup(op.param1)
+                                                            G = random.choice(KAC).getGroup(op.param1)
                                                             G.preventedJoinByTicket = False
-                                                            random.choice(ABC).updateGroup(G)
+                                                            random.choice(KAC).updateGroup(G)
                                                             invsend = 0
-                                                            Ticket = random.choice(ABC).reissueGroupTicket(op.param1)
+                                                            Ticket = random.choice(KAC).reissueGroupTicket(op.param1)
                                                             g1.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             g2.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             client.acceptGroupInvitationByTicket(op.param1,Ticket)
@@ -1833,13 +1848,13 @@ def lineBot(op):
                                                             k8.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             k9.acceptGroupInvitationByTicket(op.param1,Ticket)	
                                                             k10.acceptGroupInvitationByTicket(op.param1,Ticket)		
-                                                            random.choice(TUA).kickoutFromGroup(op.param1,[op.param2])
-                                                            random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
+                                                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                                                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                                                             g1.leaveGroup(op.param1)
                                                             g2.leaveGroup(op.param1)
-                                                            X = random.choice(ABC).getGroup(op.param1)
+                                                            X = random.choice(KAC).getGroup(op.param1)
                                                             X.preventedJoinByTicket = True
-                                                            random.choice(ABC).updateGroup(X) 
+                                                            random.choice(KAC).updateGroup(X) 
                                                         except:
                                                             try:
                                                                 kt.kickoutFromGroup(op.param1,[op.param2])
@@ -1847,8 +1862,8 @@ def lineBot(op):
                                                                 k1.acceptGroupInvitation(op.param1)
                                                             except:
                                                                 try:
-                                                                    random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
-                                                                    random.choice(ABC).inviteIntoGroup(op.param1,[op.param3])
+                                                                    random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                                                                    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                                                                     k1.acceptGroupInvitation(op.param1)
                                                                 except:
                                                                     pass 
@@ -1865,7 +1880,7 @@ def lineBot(op):
                 if op.param2 in staff:
                     pass
                 else:
-                    wait["blacklist"][op.param2] = True
+                    settings["blacklist"][op.param2] = True
                     try:
                         k3.kickoutFromGroup(op.param1,[op.param2])
                         k3.inviteIntoGroup(op.param1,[op.param3])
@@ -1912,11 +1927,11 @@ def lineBot(op):
                                                         k2.acceptGroupInvitation(op.param1)
                                                     except:
                                                         try:
-                                                            G = random.choice(ABC).getGroup(op.param1)
+                                                            G = random.choice(KAC).getGroup(op.param1)
                                                             G.preventedJoinByTicket = False
-                                                            random.choice(ABC).updateGroup(G)
+                                                            random.choice(KAC).updateGroup(G)
                                                             invsend = 0
-                                                            Ticket = random.choice(ABC).reissueGroupTicket(op.param1)
+                                                            Ticket = random.choice(KAC).reissueGroupTicket(op.param1)
                                                             g1.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             g2.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             line.acceptGroupInvitationByTicket(op.param1,Ticket)
@@ -1929,13 +1944,13 @@ def lineBot(op):
                                                             k1.acceptGroupInvitationByTicket(op.param1,Ticket)	
                                                             k2.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             k3.acceptGroupInvitationByTicket(op.param1,Ticket)	                                                            
-                                                            random.choice(TUA).kickoutFromGroup(op.param1,[op.param2])
-                                                            random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
+                                                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                                                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                                                             g1.leaveGroup(op.param1)
                                                             g2.leaveGroup(op.param1)
-                                                            X = random.choice(ABC).getGroup(op.param1)
+                                                            X = random.choice(KAC).getGroup(op.param1)
                                                             X.preventedJoinByTicket = True
-                                                            random.choice(ABC).updateGroup(X) 
+                                                            random.choice(KAC).updateGroup(X) 
                                                         except:
                                                             try:
                                                                 k1.kickoutFromGroup(op.param1,[op.param2])
@@ -1943,8 +1958,8 @@ def lineBot(op):
                                                                 k2.acceptGroupInvitation(op.param1)
                                                             except:
                                                                 try:
-                                                                    random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
-                                                                    random.choice(ABC).inviteIntoGroup(op.param1,[op.param3])
+                                                                    random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                                                                    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                                                                     kk.acceptGroupInvitation(op.param1)
                                                                 except:
                                                                     pass 
@@ -2008,11 +2023,11 @@ def lineBot(op):
                                                         k3.acceptGroupInvitation(op.param1)
                                                     except:
                                                         try:
-                                                            G = random.choice(ABC).getGroup(op.param1)
+                                                            G = random.choice(KAC).getGroup(op.param1)
                                                             G.preventedJoinByTicket = False
-                                                            random.choice(ABC).updateGroup(G)
+                                                            random.choice(KAC).updateGroup(G)
                                                             invsend = 0
-                                                            Ticket = random.choice(ABC).reissueGroupTicket(op.param1)
+                                                            Ticket = random.choice(KAC).reissueGroupTicket(op.param1)
                                                             g1.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             g2.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             line.acceptGroupInvitationByTicket(op.param1,Ticket)
@@ -2025,13 +2040,13 @@ def lineBot(op):
                                                             k1.acceptGroupInvitationByTicket(op.param1,Ticket)	
                                                             k2.acceptGroupInvitationByTicket(op.param1,Ticket)
                                                             k3.acceptGroupInvitationByTicket(op.param1,Ticket)	                                                          
-                                                            random.choice(TUA).kickoutFromGroup(op.param1,[op.param2])
-                                                            random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
+                                                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                                                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                                                             g1.leaveGroup(op.param1)
                                                             g2.leaveGroup(op.param1)
-                                                            X = random.choice(ABC).getGroup(op.param1)
+                                                            X = random.choice(KAC).getGroup(op.param1)
                                                             X.preventedJoinByTicket = True
-                                                            random.choice(ABC).updateGroup(X) 
+                                                            random.choice(KAC).updateGroup(X) 
                                                         except:
                                                             try:
                                                                 k2.kickoutFromGroup(op.param1,[op.param2])
@@ -2039,8 +2054,8 @@ def lineBot(op):
                                                                 k3.acceptGroupInvitation(op.param1)
                                                             except:
                                                                 try:
-                                                                    random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
-                                                                    random.choice(ABC).inviteIntoGroup(op.param1,[op.param3])
+                                                                    random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                                                                    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                                                                     k3.acceptGroupInvitation(op.param1)
                                                                 except:
                                                                     pass 
@@ -2434,6 +2449,10 @@ def lineBot(op):
                         else: ret_ +="🦆 Protectcancel「off」\n"
                         if msg.to in protectguest: ret_ +="🦆 Protectguest「on」\n"
                         else: ret_ +="🦆 Protectguest「off」\n"
+                        if msg.to in ghost: ret_ +="🦆 Ghost「on」\n"
+                        else: ret_ +="🦆 Ghost「off」\n"
+                        if msg.to in protectantijs: ret_ +="🦆 Anti kicker「on」\n"
+                        else: ret_ +="🦆 Anti kicker「off」\n"
                         if msg.to in protectinvite: ret_ +="🦆 Protectinvite「on」\n"
                         else: ret_ +="🦆 Protectinvite「off」\n"
                         ret_ += "\n☬S̶̭̗̞̙̿͑̽̆̃̒į̷̙̝̦̤̜̗́̉ͅl̸̛͓͋͋͆̍ę̶͇̮̦̣̖̙̘̪̉n̸͍̦͉̖̟͚̗̣̍̓̽̅̚ť̴̙͋ ̷̨̳̠͎̮̘͇̀̅̀͒̈́͊̕͝T̸̡̯̗̩̺͉̑́͛̌̒ͅé̶̡̱̯̮̯̊̏́̀̃͜a̴̭͓̫͚̐́̂̍̂̊̋̚m̸̨̨̹͎͍̳̥͆̓͗̿͐͗͑̿̓͠ ̴̠͐̂B̷̛̳͎̫̻̫̯̣͓̲͋̀͋̋͊̈͗͑o̵̲̾̈́͒͗t̴̢͍̫̰̠̞͖͍̬̑̊̽͒́̈́͗ͅ☬"
@@ -2656,8 +2675,8 @@ def lineBot(op):
                 elif text.lower() == "ghost pulang":
                     if msg._from in admin:
                         g1.leaveGroup(msg.to)
-                        g2.leaveGroup(msg.to) 
-
+                        g2.leaveGroup(msg.to)
+                                        
                 elif text.lower() == "sk pulangall":
                     if msg._from in admin:
                         gid = line.getGroupIdsJoined()
@@ -2883,6 +2902,44 @@ def lineBot(op):
                             else:
                                  msgs = "Protect invite sudah tidak aktif"
                             line.sendMessage(msg.to, "「Dinonaktifkan」\n" + msgs)
+                            
+                elif 'Ghost ' in msg.text:
+                      spl = msg.text.replace('Ghost ','')
+                      if spl == 'on':
+                          if msg.to in ghost:
+                               msgs = "ghost sudah aktif"
+                          else:
+                               ghost.append(msg.to)
+                               ginfo = line.getGroup(msg.to)
+                               msgs = "ghost diaktifkan\nDi Group : " +str(ginfo.name)
+                          line.sendMessage(msg.to, "「Diaktifkan」\n" + msgs)
+                      elif spl == 'off':
+                            if msg.to in ghost:
+                                 ghost.remove(msg.to)
+                                 ginfo = line.getGroup(msg.to)
+                                 msgs = "ghost dinonaktifkan\nDi Group : " +str(ginfo.name)
+                            else:
+                                 msgs = "ghost sudah tidak aktif"
+                            line.sendMessage(msg.to, "「Dinonaktifkan」\n" + msgs) 
+                            
+                elif 'Js ' in msg.text:
+                      spl = msg.text.replace('Js ','')
+                      if spl == 'on':
+                          if msg.to in protectantijs:
+                               msgs = "anti kicker sudah aktif"
+                          else:
+                               protectantijs.append(msg.to)
+                               ginfo = line.getGroup(msg.to)
+                               msgs = "anti kicker diaktifkan\nDi Group : " +str(ginfo.name)
+                          line.sendMessage(msg.to, "「Diaktifkan」\n" + msgs)
+                      elif spl == 'off':
+                            if msg.to in protectantijs:
+                                 protectantijs.remove(msg.to)
+                                 ginfo = line.getGroup(msg.to)
+                                 msgs = "anti kicker dinonaktifkan\nDi Group : " +str(ginfo.name)
+                            else:
+                                 msgs = "anti kicker sudah tidak aktif"
+                            line.sendMessage(msg.to, "「Dinonaktifkan」\n" + msgs) 
 
                 elif 'Skpro ' in msg.text:
                   if msg._from in admin:
@@ -3016,7 +3073,9 @@ def lineBot(op):
                         line.sendText(msg.to,"sᴇᴍᴜᴀ ɢʀᴜᴘ sᴜᴅᴀʜ ᴅɪʙᴀᴛᴀʟᴋᴀɴ")
                     else:
                         line.sendText(msg.to,"sᴇᴍᴜᴀ ɢʀᴜᴘ sᴜᴅᴀʜ ᴅɪʙᴀᴛᴀʟᴋᴀɴ")
+                
 #======================================================================================================#
+        
 #======================================================================================================#                  
         if op.type == 19:
             if lineMID in op.param3:
